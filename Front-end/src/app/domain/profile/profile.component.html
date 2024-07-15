@@ -1,0 +1,42 @@
+<div id="profile-wrapper">
+  <div *ngIf="userDetail">
+    <p>Name: {{ userDetail.fullName }}</p>
+    <p>Email: {{ userDetail.email }}</p>
+  </div>
+
+  <apx-chart
+  [series]="chartOptions.series"
+  [chart]="chartOptions.chart"
+  [dataLabels]="chartOptions.dataLabels"
+  [plotOptions]="chartOptions.plotOptions"
+  [xaxis]="chartOptions.xaxis"
+  [yaxis]="chartOptions.yaxis"
+  class="custom-heatmap"
+></apx-chart>
+
+  <div class="header-info">
+    <div>WPM</div>
+    <div>Raw</div>
+    <div>Accuracy</div>
+    <div>Chars</div>
+    <div>Match time</div>
+    <div>Data time</div>
+  </div>
+
+  <div class="wrapp-statistic">
+    <div *ngFor="let record of Records" class="record-info">
+      <div>{{ record.wpm }}</div>
+      <div>{{ record.raw }}</div>
+      <div>{{ record.accuracy }}</div>
+      <div>{{ record.chars }}</div>
+      <div>{{ record.matchTime }}</div>
+      <div>{{ record.dateRecord | date: 'HH:mm yyyy-MM-dd' }}</div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button type="submit" routerLink="/typing-game" routerLinkActive="active" ariaCurrentWhenActive="page"
+            class="button">Back</button>
+    <button (click)="logout()" class="button logout-button">Logout</button>
+  </div>
+</div>

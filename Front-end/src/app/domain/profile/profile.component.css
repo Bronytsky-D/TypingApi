@@ -1,0 +1,62 @@
+#profile-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.wrapp-statistic {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.header-info, .record-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.header-info > div, .record-info > div {
+    margin: 0 10px;
+    flex: 1;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+button {
+    width: 130px;
+    height: 30px;
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 0;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    background-color: #fd4;
+    box-shadow: 0 1px 2px #fd4;
+}
+
+.logout-button:hover {
+    background-color: red;
+    box-shadow: 0 1px 2px red;
+}
+
+#chart {
+    margin-top: 20px;
+}

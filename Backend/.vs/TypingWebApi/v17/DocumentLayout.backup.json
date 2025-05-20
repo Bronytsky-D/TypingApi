@@ -1,0 +1,118 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Lab\\Typing\\TypingApp\\Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|d:\\lab\\typing\\typingapp\\backend\\typingwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|solutionrelative:typingwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|d:\\lab\\typing\\typingapp\\backend\\typingwebapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|solutionrelative:typingwebapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|d:\\lab\\typing\\typingapp\\backend\\typingwebapi\\dtos\\refreshrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|solutionrelative:typingwebapi\\dtos\\refreshrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|d:\\lab\\typing\\typingapp\\backend\\typingwebapi\\dtos\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|solutionrelative:typingwebapi\\dtos\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DACB4412-1138-48C3-9D86-3349DE9EB6AD}|Service\\Service.csproj|d:\\lab\\typing\\typingapp\\backend\\service\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DACB4412-1138-48C3-9D86-3349DE9EB6AD}|Service\\Service.csproj|solutionrelative:service\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FE9D946-E16B-4833-AF8A-A9D0AFDB1FCE}|Repository\\Repository.csproj|d:\\lab\\typing\\typingapp\\backend\\repository\\repositories\\tokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FE9D946-E16B-4833-AF8A-A9D0AFDB1FCE}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\tokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 47,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Program.cs",
+              "RelativeDocumentMoniker": "TypingWebApi\\Program.cs",
+              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Program.cs",
+              "RelativeToolTip": "TypingWebApi\\Program.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAHgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T11:49:56.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthResponseDto.cs",
+              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Dtos\\AuthResponseDto.cs",
+              "RelativeDocumentMoniker": "TypingWebApi\\Dtos\\AuthResponseDto.cs",
+              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Dtos\\AuthResponseDto.cs",
+              "RelativeToolTip": "TypingWebApi\\Dtos\\AuthResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T21:01:18.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RefreshRequestDto.cs",
+              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Dtos\\RefreshRequestDto.cs",
+              "RelativeDocumentMoniker": "TypingWebApi\\Dtos\\RefreshRequestDto.cs",
+              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Dtos\\RefreshRequestDto.cs",
+              "RelativeToolTip": "TypingWebApi\\Dtos\\RefreshRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T19:07:14.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "TypingWebApi\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "TypingWebApi\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T18:41:49.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Services\\TokenService.cs",
+              "RelativeDocumentMoniker": "Service\\Services\\TokenService.cs",
+              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Services\\TokenService.cs",
+              "RelativeToolTip": "Service\\Services\\TokenService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T17:59:29.381Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TokenRepository.cs",
+              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\Repositories\\TokenRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repositories\\TokenRepository.cs",
+              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\Repositories\\TokenRepository.cs",
+              "RelativeToolTip": "Repository\\Repositories\\TokenRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T17:47:19.291Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

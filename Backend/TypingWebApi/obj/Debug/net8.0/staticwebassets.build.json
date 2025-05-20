@@ -1,11 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "8nAqsPa9Rf+hU4vaW2kIbF0hRbTGk0yShwe7VQJw/s8=",
-  "Source": "TypingWebApi",
-  "BasePath": "_content/TypingWebApi",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
-}
+{"Version":1,"Hash":"Vh8AVOF6f6Br1+OZ+m94xz6wecuNvfyVnD1t8h3UU44=","Source":"TypingWebApi","BasePath":"_content/TypingWebApi","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}

@@ -18,6 +18,7 @@ namespace TypingWebApi.Controllers
         {
             _recordService = recordService;
         }
+
         [HttpPost("write")]
         public async Task<IExecutionResponse> WriteRecord(WriteRecordDto recordDto)
         {
@@ -35,6 +36,7 @@ namespace TypingWebApi.Controllers
 
             return await _recordService.AddRecordAsync(record);
         }
+
         [HttpGet("read/{userId}")]
         public async Task<IExecutionResponse> GetRecordsByUserId(string userId)
         {

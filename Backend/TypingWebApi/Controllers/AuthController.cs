@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Domain.Services;
+using Google.Apis.Auth;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Service.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 using TypingWebApi.Data.Models;
 using TypingWebApi.Dtos;
@@ -17,130 +16,237 @@ namespace TypingWebApi.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly UserManager<User> _userManager;
+        private readonly IUserService _userService;
         private readonly IConfiguration _configuration;
+        private readonly ITokenService _tokenService;
 
-        public AuthController(UserManager<User> userManager,
-        IConfiguration configuration
-        )
+        public AuthController(
+            IUserService userService,
+            ITokenService tokenService,
+            IConfiguration configuration)
         {
-            _userManager = userManager;
+            _userService = userService;
+            _tokenService = tokenService;
             _configuration = configuration;
         }
+
+
         [HttpPost("register")]
-        public async Task<ActionResult<string>>Register(UserDto userDto)
+        public async Task<ActionResult<AuthResponseDto>> Register(UserDto userDto)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
+
             var user = new User
             {
                 Email = userDto.Email,
                 FullName = userDto.FullName,
                 UserName = userDto.Email
             };
-            var result = await _userManager.CreateAsync(user,userDto.Password);
-            if (!result.Succeeded)
-            {
-                return BadRequest(ModelState);
-            }
-            await _userManager.AddToRoleAsync(user, "User");
 
-            var token = GenerateToken(user);
+            var result = await _userService.CreateUser(user, userDto.Password);
+            if (!result.Succeeded)
+                return BadRequest(result.Errors);
+
+            var accessToken = _tokenService.GenerateAccessToken(user);
+            var refreshToken = _tokenService.GenerateRefreshToken();
+            await _tokenService.SaveRefreshTokenAsync(user, refreshToken);
+
+            SetRefreshTokenCookie(refreshToken);
 
             return Ok(new AuthResponseDto
             {
-                Token = token,
+                Token = accessToken,
                 IsSuccess = true,
-                Message = "Account created sucsessfully",
-
+                Message = "Account created successfully"
             });
         }
+
         [HttpPost("login")]
         public async Task<ActionResult<AuthResponseDto>> Login(LoginDto loginDto)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
 
-            var user = await _userManager.FindByEmailAsync(loginDto.Email);
+            var user = await _userService.GetUserByEmail(loginDto.Email);
+            if (user == null)
+                return Unauthorized(new AuthResponseDto { IsSuccess = false, Message = "User not found" });
 
-            if (user is null)
-            {
-                return Unauthorized(new AuthResponseDto
-                {
-                    IsSuccess = false,
-                    Message = "User not found with this email",
-                });
-            }
-
-            var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
-
+            var result = await _userService.CheckUserPassword(user, loginDto.Password);
             if (!result)
-            {
-                return Unauthorized(new AuthResponseDto
-                {
-                    IsSuccess = false,
-                    Message = "Invalid Password."
-                });
-            }
+                return Unauthorized(new AuthResponseDto { IsSuccess = false, Message = "Invalid Password" });
 
+            var accessToken = _tokenService.GenerateAccessToken(user);
+            var refreshToken = _tokenService.GenerateRefreshToken();
+            await _tokenService.SaveRefreshTokenAsync(user, refreshToken);
 
-            var token = GenerateToken(user);
+            SetRefreshTokenCookie(refreshToken);
 
             return Ok(new AuthResponseDto
             {
-                Token = token,
+                Token = accessToken,
                 IsSuccess = true,
-                Message = "Login Success."
+                Message = "Login Success"
             });
-
         }
-        private string GenerateToken(User user)
+
+        [HttpPost("google-login")]
+        public async Task<ActionResult<AuthResponseDto>> GoogleLogin([FromBody] GoogleLoginRequestDto request)
         {
-            var tokenHandler = new JwtSecurityTokenHandler();
-
-            var key = Encoding.ASCII
-            .GetBytes(_configuration.GetSection("JWTSetting").GetSection("securityKey").Value!);
-
-            var roles = _userManager.GetRolesAsync(user).Result;
-
-            List<Claim> claims =
-            [
-                new (JwtRegisteredClaimNames.Email,user.Email??""),
-                new (JwtRegisteredClaimNames.Name,user.FullName??""),
-                new (JwtRegisteredClaimNames.NameId,user.Id ??""),
-                new (JwtRegisteredClaimNames.Aud,
-                _configuration.GetSection("JWTSetting").GetSection("validAudience").Value!),
-                new (JwtRegisteredClaimNames.Iss,_configuration.GetSection("JWTSetting").GetSection("validIssuer").Value!)
-            ];
-
-
-            foreach (var role in roles)
-
+            try
             {
-                claims.Add(new Claim(ClaimTypes.Role, role));
+                var settings = new GoogleJsonWebSignature.ValidationSettings()
+                {
+                    Audience = new List<string> { _configuration["Authentication:Google:ClientId"] }
+                };
+
+                var payload = await GoogleJsonWebSignature.ValidateAsync(request.IdToken, settings);
+
+                var user = await _userService.GetUserByEmail(payload.Email);
+
+                if (user == null)
+                {
+                    user = new User
+                    {
+                        Email = payload.Email,
+                        UserName = payload.Email,
+                        FullName = payload.Name,
+                        EmailConfirmed = true
+                    };
+
+                    var result = await _userService.CreateUser(user);
+                    if (!result.Succeeded)
+                    {
+                        return BadRequest(new AuthResponseDto
+                        {
+                            IsSuccess = false,
+                            Message = "Failed to create user from Google account"
+                        });
+                    }
+                }
+
+                var accessToken = _tokenService.GenerateAccessToken(user);
+                var refreshToken = _tokenService.GenerateRefreshToken();
+                await _tokenService.SaveRefreshTokenAsync(user, refreshToken);
+
+                SetRefreshTokenCookie(refreshToken);
+
+                return Ok(new AuthResponseDto
+                {
+                    Token = accessToken,
+                    IsSuccess = true,
+                    Message = "Google login success"
+                });
             }
-
-            var tokenDescriptor = new SecurityTokenDescriptor
+            catch (InvalidJwtException)
             {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddDays(1),
-                SigningCredentials = new SigningCredentials(
-                    new SymmetricSecurityKey(key),
-                    SecurityAlgorithms.HmacSha256
-                )
-            };
-
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-
-            return tokenHandler.WriteToken(token);
-
-
+                return BadRequest(new AuthResponseDto
+                {
+                    IsSuccess = false,
+                    Message = "Invalid Google ID token"
+                });
+            }
         }
+
+        [HttpPost("refresh")]
+        public async Task<ActionResult<AuthResponseDto>> Refresh()
+        {
+            var refreshToken = Request.Cookies["refreshToken"];
+            if (string.IsNullOrEmpty(refreshToken))
+                return Unauthorized("Refresh token not found");
+
+            var userId = GetUserIdFromExpiredAccessToken(); // реалізуй за потреби
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("UserId not found");
+
+            var token = await _tokenService.GetValidRefreshTokenAsync(userId, refreshToken);
+            if (token == null)
+                return Unauthorized("Invalid refresh token");
+
+            token.IsRevoked = true;
+
+            var user = await _userService.GetUserById(userId);
+            if (user == null)
+                return Unauthorized("User not found");
+
+            var newAccess = _tokenService.GenerateAccessToken(user);
+            var newRefresh = _tokenService.GenerateRefreshToken();
+            await _tokenService.SaveRefreshTokenAsync(user, newRefresh);
+
+            SetRefreshTokenCookie(newRefresh);
+
+            return Ok(new AuthResponseDto
+            {
+                Token = newAccess,
+                IsSuccess = true,
+                Message = "Token refreshed"
+            });
+        }
+        [HttpPost("logout")]
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("refreshToken");
+            return Ok("Logged out");
+        }
+
+        private void SetRefreshTokenCookie(string refreshToken)
+        {
+            Response.Cookies.Append("refreshToken", refreshToken, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Strict,
+                Expires = DateTime.UtcNow.AddDays(7)
+            });
+        }
+
+        // (опційно) Якщо хочеш виймати userId із старого токена:
+        private string GetUserIdFromExpiredAccessToken()
+        {
+            var authHeader = Request.Headers["Authorization"].ToString();
+            if (!authHeader.StartsWith("Bearer ")) return null;
+
+            var token = authHeader["Bearer ".Length..];
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var jwt = tokenHandler.ReadJwtToken(token);
+            return jwt?.Subject;
+        }
+
+
+
+        //    private string GenerateToken(User user)
+        //    {
+        //        var tokenHandler = new JwtSecurityTokenHandler();
+
+        //        var key = Encoding.ASCII.GetBytes(
+        //            _configuration["JWTSetting:securityKey"]!
+        //        );
+
+        //        var claims = new List<Claim>
+        //{
+        //    new(JwtRegisteredClaimNames.Email, user.Email ?? ""),
+        //    new(JwtRegisteredClaimNames.Name, user.FullName ?? ""),
+        //    new(JwtRegisteredClaimNames.NameId, user.Id ?? ""),
+        //    new(JwtRegisteredClaimNames.Aud, _configuration["JWTSetting:validAudience"]!),
+        //    new(JwtRegisteredClaimNames.Iss, _configuration["JWTSetting:validIssuer"]!),
+
+        //    new(ClaimTypes.Role, "User")
+        //};
+
+        //        var tokenDescriptor = new SecurityTokenDescriptor
+        //        {
+        //            Subject = new ClaimsIdentity(claims),
+        //            Expires = DateTime.UtcNow.AddDays(1),
+        //            SigningCredentials = new SigningCredentials(
+        //                new SymmetricSecurityKey(key),
+        //                SecurityAlgorithms.HmacSha256
+        //            )
+        //        };
+
+        //        var token = tokenHandler.CreateToken(tokenDescriptor);
+
+        //        return tokenHandler.WriteToken(token);
+        //    }
 
     }
 }

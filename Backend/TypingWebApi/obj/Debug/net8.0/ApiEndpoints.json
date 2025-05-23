@@ -158,5 +158,31 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "TypingWebApi.Controllers.UserController",
+    "Method": "GetProfile",
+    "RelativePath": "api/User/profile/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TypingWebApi.Dtos.UserGetDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

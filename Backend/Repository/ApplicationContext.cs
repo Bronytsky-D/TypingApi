@@ -7,6 +7,7 @@ namespace TypingWebApi.Data.Context
     using Domain.Models;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+    using System.Reflection.Emit;
     using TypingWebApi.Data.Models;
 
     public class ApplicationContext : IdentityDbContext<User>
@@ -28,6 +29,9 @@ namespace TypingWebApi.Data.Context
                 .WithOne(r => r.User)
                 .HasForeignKey(r => r.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+            builder.Entity<Record>()
+                .Property(r => r.Mode)
+                .HasConversion<string>();
         }
     }
 }

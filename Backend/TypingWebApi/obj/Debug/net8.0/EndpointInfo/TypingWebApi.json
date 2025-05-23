@@ -276,6 +276,45 @@
           }
         }
       }
+    },
+    "/api/User/profile/{userId}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserGetDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserGetDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserGetDto"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -296,6 +335,14 @@
           }
         },
         "additionalProperties": false
+      },
+      "GameMode": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "GoogleLoginRequestDto": {
         "type": "object",
@@ -371,13 +418,38 @@
         },
         "additionalProperties": false
       },
-      "WriteRecordDto": {
+      "UserGetDto": {
         "type": "object",
         "properties": {
-          "userId": {
+          "fullName": {
             "type": "string",
             "nullable": true
           },
+          "level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "experiencePoints": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "experienceToNextLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "achievements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WriteRecordDto": {
+        "type": "object",
+        "properties": {
           "wpm": {
             "type": "integer",
             "format": "int32"
@@ -390,15 +462,31 @@
             "type": "integer",
             "format": "int32"
           },
-          "consistency": {
-            "type": "integer",
-            "format": "int32"
-          },
           "chars": {
             "type": "integer",
             "format": "int32"
           },
           "matchTime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mode": {
+            "$ref": "#/components/schemas/GameMode"
+          },
+          "gameLength": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "consistency": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "experience": {
             "type": "integer",
             "format": "int32"
           }

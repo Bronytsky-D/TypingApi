@@ -22,5 +22,7 @@ namespace Domain.Repositories
         Task UpdateAsync(User user);
 
         Task AddToRoleAsync(User user, string role);
+
+        Task AddExperienceAsync(User user, int xpToAdd);
     }
 }

@@ -83,21 +83,10 @@ namespace Service.Services
             if (user == null)
                 return false;
 
-            user.ExperiencePoints += xp;
-            user.Level = user.ExperiencePoints / 100;
-
-            await _unitOfWork.User.UpdateAsync(user);
+            await _unitOfWork.User.AddExperienceAsync(user, xp);
             await _unitOfWork.CommitAsync();
 
             return true;
-        }
-
-        public async Task<List<User>> GetLeaderboardAsync(int count = 10)
-        {
-            return (await _unitOfWork.User.GetAllUserAsync())
-                .OrderByDescending(u => u.ExperiencePoints)
-                .Take(count)
-                .ToList();
         }
     }
 }

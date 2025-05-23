@@ -59,5 +59,21 @@ namespace Repository.Repositories
         {
             await _userManager.AddToRoleAsync(user, role);
         }
+        public async Task AddExperienceAsync(User user, int xpToAdd)
+        {
+            user.ExperiencePoints += xpToAdd;
+
+            while (user.ExperiencePoints >= 100*(user.Level + 1))
+            {
+                user.Level++;
+
+                // Приклад: додаємо досягнення за кожен рівень
+                user.Achievements ??= new List<string>();
+                user.Achievements.Add($"Level {user.Level} reached");
+            }
+
+            await _userManager.UpdateAsync(user);
+        }
+
     }
 }

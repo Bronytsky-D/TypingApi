@@ -3,175 +3,115 @@
   "WorkspaceRootPath": "D:\\Lab\\Typing\\TypingApp\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DACB4412-1138-48C3-9D86-3349DE9EB6AD}|Service\\Service.csproj|d:\\lab\\typing\\typingapp\\backend\\service\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DACB4412-1138-48C3-9D86-3349DE9EB6AD}|Service\\Service.csproj|solutionrelative:service\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|d:\\lab\\typing\\typingapp\\backend\\typingwebapi\\controllers\\progresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|solutionrelative:typingwebapi\\controllers\\progresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DACB4412-1138-48C3-9D86-3349DE9EB6AD}|Service\\Service.csproj|d:\\lab\\typing\\typingapp\\backend\\service\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DACB4412-1138-48C3-9D86-3349DE9EB6AD}|Service\\Service.csproj|solutionrelative:service\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|d:\\lab\\typing\\typingapp\\backend\\typingwebapi\\dtos\\writeprogressdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|solutionrelative:typingwebapi\\dtos\\writeprogressdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|d:\\lab\\typing\\typingapp\\backend\\typingwebapi\\controllers\\recordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|solutionrelative:typingwebapi\\controllers\\recordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|d:\\lab\\typing\\typingapp\\backend\\typingwebapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|solutionrelative:typingwebapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DACB4412-1138-48C3-9D86-3349DE9EB6AD}|Service\\Service.csproj|d:\\lab\\typing\\typingapp\\backend\\service\\services\\progressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DACB4412-1138-48C3-9D86-3349DE9EB6AD}|Service\\Service.csproj|solutionrelative:service\\services\\progressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|d:\\lab\\typing\\typingapp\\backend\\typingwebapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|solutionrelative:typingwebapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6FE9D946-E16B-4833-AF8A-A9D0AFDB1FCE}|Repository\\Repository.csproj|d:\\lab\\typing\\typingapp\\backend\\repository\\applicationcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FE9D946-E16B-4833-AF8A-A9D0AFDB1FCE}|Repository\\Repository.csproj|solutionrelative:repository\\applicationcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|d:\\lab\\typing\\typingapp\\backend\\typingwebapi\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|solutionrelative:typingwebapi\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3D65A624-C008-4E0E-8AB2-E29850489661}|Data\\Domain.csproj|d:\\lab\\typing\\typingapp\\backend\\data\\iexecutionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D65A624-C008-4E0E-8AB2-E29850489661}|Data\\Domain.csproj|solutionrelative:data\\iexecutionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6FE9D946-E16B-4833-AF8A-A9D0AFDB1FCE}|Repository\\Repository.csproj|d:\\lab\\typing\\typingapp\\backend\\repository\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6FE9D946-E16B-4833-AF8A-A9D0AFDB1FCE}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DACB4412-1138-48C3-9D86-3349DE9EB6AD}|Service\\Service.csproj|d:\\lab\\typing\\typingapp\\backend\\service\\extensions\\serviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DACB4412-1138-48C3-9D86-3349DE9EB6AD}|Service\\Service.csproj|solutionrelative:service\\extensions\\serviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3D65A624-C008-4E0E-8AB2-E29850489661}|Data\\Domain.csproj|d:\\lab\\typing\\typingapp\\backend\\data\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D65A624-C008-4E0E-8AB2-E29850489661}|Data\\Domain.csproj|solutionrelative:data\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DACB4412-1138-48C3-9D86-3349DE9EB6AD}|Service\\Service.csproj|d:\\lab\\typing\\typingapp\\backend\\service\\services\\recordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DACB4412-1138-48C3-9D86-3349DE9EB6AD}|Service\\Service.csproj|solutionrelative:service\\services\\recordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3D65A624-C008-4E0E-8AB2-E29850489661}|Data\\Domain.csproj|d:\\lab\\typing\\typingapp\\backend\\data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D65A624-C008-4E0E-8AB2-E29850489661}|Data\\Domain.csproj|solutionrelative:data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|d:\\lab\\typing\\typingapp\\backend\\typingwebapi\\dtos\\writerecorddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}|TypingWebApi\\TypingWebApi.csproj|solutionrelative:typingwebapi\\dtos\\writerecorddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D65A624-C008-4E0E-8AB2-E29850489661}|Data\\Domain.csproj|d:\\lab\\typing\\typingapp\\backend\\data\\models\\record.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D65A624-C008-4E0E-8AB2-E29850489661}|Data\\Domain.csproj|solutionrelative:data\\models\\record.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D65A624-C008-4E0E-8AB2-E29850489661}|Data\\Domain.csproj|d:\\lab\\typing\\typingapp\\backend\\data\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D65A624-C008-4E0E-8AB2-E29850489661}|Data\\Domain.csproj|solutionrelative:data\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D65A624-C008-4E0E-8AB2-E29850489661}|Data\\Domain.csproj|d:\\lab\\typing\\typingapp\\backend\\data\\repositories\\irecordrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D65A624-C008-4E0E-8AB2-E29850489661}|Data\\Domain.csproj|solutionrelative:data\\repositories\\irecordrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3D65A624-C008-4E0E-8AB2-E29850489661}|Data\\Domain.csproj|d:\\lab\\typing\\typingapp\\backend\\data\\services\\iprogressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D65A624-C008-4E0E-8AB2-E29850489661}|Data\\Domain.csproj|solutionrelative:data\\services\\iprogressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 1,
+      "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 47,
-          "SelectedChildIndex": 6,
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TokenService.cs",
-              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Services\\TokenService.cs",
-              "RelativeDocumentMoniker": "Service\\Services\\TokenService.cs",
-              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Services\\TokenService.cs",
-              "RelativeToolTip": "Service\\Services\\TokenService.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Title": "WriteProgressDto.cs",
+              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Dtos\\WriteProgressDto.cs",
+              "RelativeDocumentMoniker": "TypingWebApi\\Dtos\\WriteProgressDto.cs",
+              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Dtos\\WriteProgressDto.cs",
+              "RelativeToolTip": "TypingWebApi\\Dtos\\WriteProgressDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T19:52:46.489Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserDto.cs",
-              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Dtos\\UserDto.cs",
-              "RelativeDocumentMoniker": "TypingWebApi\\Dtos\\UserDto.cs",
-              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Dtos\\UserDto.cs",
-              "RelativeToolTip": "TypingWebApi\\Dtos\\UserDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T18:21:22.407Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "TypingWebApi\\Controllers\\UserController.cs",
-              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Controllers\\UserController.cs",
-              "RelativeToolTip": "TypingWebApi\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T18:18:24.999Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Data\\Models\\User.cs",
-              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\Models\\User.cs",
-              "RelativeToolTip": "Data\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T18:13:09.037Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "TypingWebApi\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "TypingWebApi\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T11:19:21.115Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\Services\\IUserService.cs",
-              "RelativeDocumentMoniker": "Data\\Services\\IUserService.cs",
-              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\Services\\IUserService.cs",
-              "RelativeToolTip": "Data\\Services\\IUserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T10:22:47.675Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "Service\\Services\\UserService.cs",
-              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Services\\UserService.cs",
-              "RelativeToolTip": "Service\\Services\\UserService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB8AAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T11:08:06.287Z",
+              "WhenOpened": "2025-05-29T17:09:04.413Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\Repositories\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Repositories\\IUserRepository.cs",
-              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\Repositories\\IUserRepository.cs",
-              "RelativeToolTip": "Data\\Repositories\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA4AAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "ApplicationContext.cs",
+              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\ApplicationContext.cs",
+              "RelativeDocumentMoniker": "Repository\\ApplicationContext.cs",
+              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\ApplicationContext.cs",
+              "RelativeToolTip": "Repository\\ApplicationContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T11:06:07.392Z"
+              "WhenOpened": "2025-05-29T16:17:29.304Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\Repositories\\UserRepository.cs",
-              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "Repository\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAwwEsAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ProgressService.cs",
+              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Services\\ProgressService.cs",
+              "RelativeDocumentMoniker": "Service\\Services\\ProgressService.cs",
+              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Services\\ProgressService.cs",
+              "RelativeToolTip": "Service\\Services\\ProgressService.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwDEAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T11:06:04.536Z"
+              "WhenOpened": "2025-05-29T15:53:14.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IExecutionResponse.cs",
+              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\IExecutionResponse.cs",
+              "RelativeDocumentMoniker": "Data\\IExecutionResponse.cs",
+              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\IExecutionResponse.cs",
+              "RelativeToolTip": "Data\\IExecutionResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T21:22:14.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProgressController.cs",
+              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Controllers\\ProgressController.cs",
+              "RelativeDocumentMoniker": "TypingWebApi\\Controllers\\ProgressController.cs",
+              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Controllers\\ProgressController.cs*",
+              "RelativeToolTip": "TypingWebApi\\Controllers\\ProgressController.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T15:40:41.689Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -181,45 +121,49 @@
               "RelativeDocumentMoniker": "TypingWebApi\\Controllers\\RecordController.cs",
               "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Controllers\\RecordController.cs",
               "RelativeToolTip": "TypingWebApi\\Controllers\\RecordController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAQwDcAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAADwvzQAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T10:48:05.452Z"
+              "WhenOpened": "2025-05-21T10:48:05.452Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "WriteRecordDto.cs",
-              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Dtos\\WriteRecordDto.cs",
-              "RelativeDocumentMoniker": "TypingWebApi\\Dtos\\WriteRecordDto.cs",
-              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Dtos\\WriteRecordDto.cs",
-              "RelativeToolTip": "TypingWebApi\\Dtos\\WriteRecordDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "ServiceExtensions.cs",
+              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Extensions\\ServiceExtensions.cs",
+              "RelativeDocumentMoniker": "Service\\Extensions\\ServiceExtensions.cs",
+              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Extensions\\ServiceExtensions.cs",
+              "RelativeToolTip": "Service\\Extensions\\ServiceExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T10:48:11.684Z"
+              "WhenOpened": "2025-05-29T15:57:47.301Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "IRecordRepository.cs",
-              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\Repositories\\IRecordRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Repositories\\IRecordRepository.cs",
-              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\Repositories\\IRecordRepository.cs",
-              "RelativeToolTip": "Data\\Repositories\\IRecordRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "RecordService.cs",
+              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Services\\RecordService.cs",
+              "RelativeDocumentMoniker": "Service\\Services\\RecordService.cs",
+              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Services\\RecordService.cs",
+              "RelativeToolTip": "Service\\Services\\RecordService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T10:45:15.032Z"
+              "WhenOpened": "2025-05-29T15:54:11.618Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Record.cs",
-              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\Models\\Record.cs",
-              "RelativeDocumentMoniker": "Data\\Models\\Record.cs",
-              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\Models\\Record.cs",
-              "RelativeToolTip": "Data\\Models\\Record.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAxAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "IProgressService.cs",
+              "DocumentMoniker": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\Services\\IProgressService.cs",
+              "RelativeDocumentMoniker": "Data\\Services\\IProgressService.cs",
+              "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\Services\\IProgressService.cs",
+              "RelativeToolTip": "Data\\Services\\IProgressService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T10:35:25.413Z"
+              "WhenOpened": "2025-05-29T15:52:40.186Z",
+              "EditorCaption": ""
             }
           ]
         }

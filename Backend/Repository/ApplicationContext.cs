@@ -19,6 +19,7 @@ namespace TypingWebApi.Data.Context
 
         public DbSet<Record> Records { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
+        public DbSet<LessonProgress> LessonProgress { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

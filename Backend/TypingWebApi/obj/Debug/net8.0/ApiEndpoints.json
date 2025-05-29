@@ -108,6 +108,63 @@
     ]
   },
   {
+    "ContainingType": "TypingWebApi.Controllers.ProgressController",
+    "Method": "ReadProgress",
+    "RelativePath": "api/Progress/read/{userId}/{lessonId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "lessonId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TypingWebApi.Domains.Models.Types.IExecutionResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TypingWebApi.Controllers.ProgressController",
+    "Method": "WriteProgress",
+    "RelativePath": "api/Progress/write",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "TypingWebApi.Dtos.WriteProgressDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TypingWebApi.Domains.Models.Types.IExecutionResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "TypingWebApi.Controllers.RecordController",
     "Method": "GetRecordsByUserId",
     "RelativePath": "api/Record/read/{userId}",

@@ -21,6 +21,8 @@ namespace Repository
         private RecordRepository _recordRepository;
         private UserRepository _userRepository;
         private TokenRepository _refreshTokenRepository;
+        private ProgressRepository _progrssRepository;
+
 
         public UnitOfWork(ApplicationContext context, UserManager<User> userManager)
         {
@@ -29,7 +31,8 @@ namespace Repository
         }
         public IRecordRepository Record => _recordRepository ??= new RecordRepository(_context);
         public IUserRepository User => _userRepository ??= new UserRepository(_userManager);
-        public ITokenRepository RefreshToken => _refreshTokenRepository??= new TokenRepository(_context);
+        public ITokenRepository RefreshToken => _refreshTokenRepository ??= new TokenRepository(_context);
+        public IProgressRepository Progress => _progrssRepository ??= new ProgressRepository(_context);
         public async Task<int> CommitAsync()
         {
             return await _context.SaveChangesAsync();

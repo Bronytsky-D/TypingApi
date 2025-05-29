@@ -8,7 +8,7 @@ namespace Domain
         IUserRepository User { get; }
         IRecordRepository Record { get; }
         ITokenRepository RefreshToken { get; }
-
+        IProgressRepository Progress { get; }
         Task<int> CommitAsync();
     }
 }

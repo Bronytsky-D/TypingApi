@@ -21,11 +21,13 @@ namespace TypingWebApi.Extensions
             services.AddScoped<IRecordService, RecordService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IProgressService, ProgressService>();
 
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRecordRepository, RecordRepository>();
             services.AddScoped<ITokenRepository, TokenRepository>();
+            services.AddScoped<IProgressRepository, ProgressRepository>();
 
         }
     }

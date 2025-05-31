@@ -15,8 +15,12 @@ namespace TypingWebApi.Controllers
             => _progressService = progressService;
 
         [HttpGet("read/{userId}/{lessonId}")]
-        public async Task<IExecutionResponse> ReadProgress(string userId, int lessonId)
-            => await _progressService.GetAsync(userId, lessonId);
+        public async Task<IExecutionResponse> ReadbyIdProgress(string userId, int lessonId)
+            => await _progressService.GetByUserAndLessonIdAsync(userId, lessonId);
+
+        [HttpGet("read/{userId}")]
+        public async Task<IExecutionResponse> ReadProgress(string userId)
+          => await _progressService.GetByUserIdAsync(userId);
 
         [HttpPost("write")]
         public async Task<IExecutionResponse> WriteProgress(WriteProgressDto dto)

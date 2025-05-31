@@ -17,5 +17,6 @@ namespace TypingWebApi.Dtos
 
             public string userId { get; set; }
             public int Experience { get; set; }
+            public string Language { get; set; }
     }
 }

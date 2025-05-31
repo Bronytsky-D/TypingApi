@@ -238,6 +238,45 @@
         }
       }
     },
+    "/api/Progress/read/{userId}": {
+      "get": {
+        "tags": [
+          "Progress"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IExecutionResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IExecutionResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IExecutionResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Progress/write": {
       "post": {
         "tags": [
@@ -611,6 +650,10 @@
           "experience": {
             "type": "integer",
             "format": "int32"
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

@@ -17,7 +17,7 @@ namespace Service.Services
 
         public ProgressService(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
 
-        public async Task<IExecutionResponse> GetAsync(string userId, int lessonId)
+        public async Task<IExecutionResponse> GetByUserAndLessonIdAsync(string userId, int lessonId)
         {
             if (string.IsNullOrWhiteSpace(userId))
                 return ExecutionResponse.Failure("userId empty");
@@ -27,6 +27,20 @@ namespace Service.Services
                 ? ExecutionResponse.Successful(lp)
                 : ExecutionResponse.Failure("Lesson progress not found");
         }
+        public async Task<IExecutionResponse> GetByUserIdAsync(string userId)
+        {
+            if (string.IsNullOrWhiteSpace(userId))
+                return ExecutionResponse.Failure("userId empty");
+
+            // Припускаємо, що _unitOfWork.Progress.GetByUserAsync повертає
+            // саме List<LessonProgress> або null, якщо записів немає.
+            var progresses = await _unitOfWork.Progress.GetByUserAsync(userId)
+                            ?? new List<LessonProgress>();
+
+            // Завжди повертаємо успішний результат із фактичним списком
+            return ExecutionResponse.Successful(progresses);
+        }
+
 
         public async Task<IExecutionResponse> UpsertAsync(LessonProgress dto)
         {

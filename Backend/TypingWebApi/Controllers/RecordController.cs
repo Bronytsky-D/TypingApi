@@ -37,7 +37,8 @@ namespace TypingWebApi.Controllers
                 Chars = recordDto.Chars,
                 MatchTime = recordDto.MatchTime,
                 GameLength = recordDto.GameLength,
-                Mode = recordDto.Mode
+                Mode = recordDto.Mode,
+                Language = recordDto.Language 
             };
             var response = await _recordService.AddRecordAsync(record);
 

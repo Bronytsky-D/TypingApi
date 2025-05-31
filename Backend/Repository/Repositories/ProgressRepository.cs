@@ -20,6 +20,14 @@ namespace Repository.Repositories
             await Context.Set<LessonProgress>()
                 .SingleOrDefaultAsync(x => x.UserId == userId && x.LessonId == lessonId);
 
+        public async Task<IEnumerable<LessonProgress>> GetByUserAsync(string userId)
+        {
+            return await Context.Set<LessonProgress>()
+                .Where(x => x.UserId == userId)
+                .ToListAsync();  // ToListAsync() поверне List<LessonProgress>, яке сумісне з IEnumerable<LessonProgress>
+        }
+
+
         private ApplicationContext Context => (ApplicationContext)_context;
     }
 }

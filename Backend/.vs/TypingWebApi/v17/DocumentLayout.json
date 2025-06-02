@@ -58,8 +58,7 @@
               "RelativeToolTip": "TypingWebApi\\Dtos\\WriteRecordDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T21:42:39.807Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T21:42:39.807Z"
             },
             {
               "$type": "Document",
@@ -71,8 +70,7 @@
               "RelativeToolTip": "Data\\Models\\Record.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T21:35:34.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T21:35:34.937Z"
             },
             {
               "$type": "Document",
@@ -108,8 +106,7 @@
               "RelativeToolTip": "TypingWebApi\\Controllers\\ProgressController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T15:40:41.689Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T15:40:41.689Z"
             },
             {
               "$type": "Document",
@@ -119,7 +116,7 @@
               "RelativeDocumentMoniker": "TypingWebApi\\Controllers\\RecordController.cs",
               "ToolTip": "D:\\Lab\\Typing\\TypingApp\\Backend\\TypingWebApi\\Controllers\\RecordController.cs",
               "RelativeToolTip": "TypingWebApi\\Controllers\\RecordController.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAuwCgAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAzwCgAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-21T10:48:05.452Z",
               "EditorCaption": ""

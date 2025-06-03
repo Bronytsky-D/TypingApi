@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("620412f8-13e6-4589-a791-4762cc2a8e3a")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("TypingWebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+baeaca85bbf72942b65249e1268bd76ed259c805")]
 [assembly: System.Reflection.AssemblyProductAttribute("TypingWebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TypingWebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

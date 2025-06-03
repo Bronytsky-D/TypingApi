@@ -1,0 +1,48 @@
+networks:
+  dev:
+    driver: bridge
+
+
+services:
+  typingwebapi:
+    image: ${DOCKER_REGISTRY-}typingwebapi
+    build:
+      context: .
+      dockerfile: TypingWebApi/Dockerfile
+    depends_on:
+       - db
+    environment:
+        ConnectionStrings__DefaultConnection: "Host=db_typingwebapi;Port=5432;Username=postgres;Password=yhy121352;Database=typing-game"
+    ports:
+       - "8080:8080" 
+       - "8081:8081"
+    networks:
+      - dev
+  client:
+    image: ${DOCKER_REGISTRY-}angular
+    build:
+        context: ../Front-end/TypingApp
+        dockerfile: Dockerfile
+    depends_on:
+      - typingwebapi
+    ports: 
+     - "4200:4200"
+    networks:
+      - dev
+  db:
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+        - db-data:/var/lib/postgresql/data
+    container_name: db_typingwebapi
+    environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: yhy121352
+        POSTGRES_DB: typing-game
+    networks:
+      - dev
+
+volumes:
+  db-data:

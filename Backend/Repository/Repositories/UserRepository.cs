@@ -67,7 +67,6 @@ namespace Repository.Repositories
             {
                 user.Level++;
 
-                // Приклад: додаємо досягнення за кожен рівень
                 user.Achievements ??= new List<string>();
                 user.Achievements.Add($"Level {user.Level} reached");
             }

@@ -24,7 +24,7 @@ namespace Repository.Repositories
         {
             return await Context.Set<LessonProgress>()
                 .Where(x => x.UserId == userId)
-                .ToListAsync();  // ToListAsync() поверне List<LessonProgress>, яке сумісне з IEnumerable<LessonProgress>
+                .ToListAsync(); 
         }
 
 

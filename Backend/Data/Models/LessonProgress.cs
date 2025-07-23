@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Models
 {
@@ -11,7 +6,7 @@ namespace Domain.Models
     {
         [Key] public int Id { get; set; }
         [Required] public string UserId { get; set; }
-        [Required] public int LessonId { get; set; }        // отримується від фронтенду
+        [Required] public int LessonId { get; set; }      
         public int BestWpm { get; set; }
         public int BestRaw { get; set; }
         public int BestAccuracy { get; set; }

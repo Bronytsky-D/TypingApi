@@ -1,7 +1,6 @@
-﻿using Domain.Services;
+﻿using AutoMapper;
+using Domain.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Service.Services;
 using TypingWebApi.Dtos;
 
 namespace TypingWebApi.Controllers
@@ -11,27 +10,20 @@ namespace TypingWebApi.Controllers
     public class UserController : Controller
     {
         private readonly IUserService _userService;
-        public UserController(
-           IUserService userService)
+        private readonly IMapper _mapper;  
+        public UserController(IUserService userService, IMapper mapper)
         {
             _userService = userService;
+            _mapper = mapper;
         }
 
-        [HttpGet("profile/{userId}")]
-        public async Task<ActionResult<UserGetDto>> GetProfile(string userId)
+        [HttpGet("{userId}")]
+        public async Task<ActionResult<UserReadResponeDto>> GetUser(string userId)
         {
             var user = await _userService.GetUserById(userId);
             if (user == null)
                 return NotFound();
-
-            var dto = new UserGetDto
-            {
-                FullName = user.FullName,
-                Level = user.Level,
-                ExperiencePoints = user.ExperiencePoints,
-                ExperienceToNextLevel = 100 * (user.Level + 1),
-                Achievements = user.Achievements ?? new List<string>()
-            };
+            var dto = _mapper.Map<UserReadResponeDto>(user);
 
             return Ok(dto);
         }

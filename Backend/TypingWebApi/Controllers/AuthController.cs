@@ -155,7 +155,7 @@ namespace TypingWebApi.Controllers
             if (string.IsNullOrEmpty(refreshToken))
                 return Unauthorized("Refresh token not found");
 
-            var userId = GetUserIdFromExpiredAccessToken(); // реалізуй за потреби
+            var userId = GetUserIdFromExpiredAccessToken(); 
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized("UserId not found");
 
@@ -200,7 +200,6 @@ namespace TypingWebApi.Controllers
             });
         }
 
-        // (опційно) Якщо хочеш виймати userId із старого токена:
         private string GetUserIdFromExpiredAccessToken()
         {
             var authHeader = Request.Headers["Authorization"].ToString();
@@ -211,42 +210,6 @@ namespace TypingWebApi.Controllers
             var jwt = tokenHandler.ReadJwtToken(token);
             return jwt?.Subject;
         }
-
-
-
-        //    private string GenerateToken(User user)
-        //    {
-        //        var tokenHandler = new JwtSecurityTokenHandler();
-
-        //        var key = Encoding.ASCII.GetBytes(
-        //            _configuration["JWTSetting:securityKey"]!
-        //        );
-
-        //        var claims = new List<Claim>
-        //{
-        //    new(JwtRegisteredClaimNames.Email, user.Email ?? ""),
-        //    new(JwtRegisteredClaimNames.Name, user.FullName ?? ""),
-        //    new(JwtRegisteredClaimNames.NameId, user.Id ?? ""),
-        //    new(JwtRegisteredClaimNames.Aud, _configuration["JWTSetting:validAudience"]!),
-        //    new(JwtRegisteredClaimNames.Iss, _configuration["JWTSetting:validIssuer"]!),
-
-        //    new(ClaimTypes.Role, "User")
-        //};
-
-        //        var tokenDescriptor = new SecurityTokenDescriptor
-        //        {
-        //            Subject = new ClaimsIdentity(claims),
-        //            Expires = DateTime.UtcNow.AddDays(1),
-        //            SigningCredentials = new SigningCredentials(
-        //                new SymmetricSecurityKey(key),
-        //                SecurityAlgorithms.HmacSha256
-        //            )
-        //        };
-
-        //        var token = tokenHandler.CreateToken(tokenDescriptor);
-
-        //        return tokenHandler.WriteToken(token);
-        //    }
 
     }
 }

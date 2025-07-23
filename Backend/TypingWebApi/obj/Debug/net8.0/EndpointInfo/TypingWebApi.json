@@ -190,7 +190,7 @@
         }
       }
     },
-    "/api/Progress/read/{userId}/{lessonId}": {
+    "/api/Progress/{userId}/lesson/{lessonId}": {
       "get": {
         "tags": [
           "Progress"
@@ -238,7 +238,7 @@
         }
       }
     },
-    "/api/Progress/read/{userId}": {
+    "/api/Progress/{userId}": {
       "get": {
         "tags": [
           "Progress"
@@ -277,7 +277,7 @@
         }
       }
     },
-    "/api/Progress/write": {
+    "/api/Progress": {
       "post": {
         "tags": [
           "Progress"
@@ -286,17 +286,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WriteProgressDto"
+                "$ref": "#/components/schemas/ProgressWriteRequestDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/WriteProgressDto"
+                "$ref": "#/components/schemas/ProgressWriteRequestDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/WriteProgressDto"
+                "$ref": "#/components/schemas/ProgressWriteRequestDto"
               }
             }
           }
@@ -325,7 +325,7 @@
         }
       }
     },
-    "/api/Record/write": {
+    "/api/Record": {
       "post": {
         "tags": [
           "Record"
@@ -334,17 +334,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WriteRecordDto"
+                "$ref": "#/components/schemas/RecordWriteRequestDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/WriteRecordDto"
+                "$ref": "#/components/schemas/RecordWriteRequestDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/WriteRecordDto"
+                "$ref": "#/components/schemas/RecordWriteRequestDto"
               }
             }
           }
@@ -373,7 +373,7 @@
         }
       }
     },
-    "/api/Record/read/{userId}": {
+    "/api/Record/{userId}": {
       "get": {
         "tags": [
           "Record"
@@ -412,7 +412,7 @@
         }
       }
     },
-    "/api/User/profile/{userId}": {
+    "/api/User/{userId}": {
       "get": {
         "tags": [
           "User"
@@ -433,17 +433,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserGetDto"
+                  "$ref": "#/components/schemas/UserReadResponeDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserGetDto"
+                  "$ref": "#/components/schemas/UserReadResponeDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserGetDto"
+                  "$ref": "#/components/schemas/UserReadResponeDto"
                 }
               }
             }
@@ -529,60 +529,7 @@
         },
         "additionalProperties": false
       },
-      "UserDto": {
-        "required": [
-          "email",
-          "fullName",
-          "password"
-        ],
-        "type": "object",
-        "properties": {
-          "fullName": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "email": {
-            "minLength": 1,
-            "type": "string",
-            "format": "email"
-          },
-          "password": {
-            "minLength": 1,
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserGetDto": {
-        "type": "object",
-        "properties": {
-          "fullName": {
-            "type": "string",
-            "nullable": true
-          },
-          "level": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "experiencePoints": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "experienceToNextLevel": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "achievements": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WriteProgressDto": {
+      "ProgressWriteRequestDto": {
         "type": "object",
         "properties": {
           "userId": {
@@ -608,7 +555,7 @@
         },
         "additionalProperties": false
       },
-      "WriteRecordDto": {
+      "RecordWriteRequestDto": {
         "type": "object",
         "properties": {
           "wpm": {
@@ -653,6 +600,59 @@
           },
           "language": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserDto": {
+        "required": [
+          "email",
+          "fullName",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "email": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserReadResponeDto": {
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "experiencePoints": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "experienceToNextLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "achievements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           }
         },

@@ -32,12 +32,9 @@ namespace Service.Services
             if (string.IsNullOrWhiteSpace(userId))
                 return ExecutionResponse.Failure("userId empty");
 
-            // Припускаємо, що _unitOfWork.Progress.GetByUserAsync повертає
-            // саме List<LessonProgress> або null, якщо записів немає.
             var progresses = await _unitOfWork.Progress.GetByUserAsync(userId)
                             ?? new List<LessonProgress>();
 
-            // Завжди повертаємо успішний результат із фактичним списком
             return ExecutionResponse.Successful(progresses);
         }
 

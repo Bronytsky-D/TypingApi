@@ -1,6 +1,6 @@
 ﻿namespace TypingWebApi.Dtos
 {
-    public class WriteProgressDto
+    public class ProgressWriteRequestDto
     {
         public string UserId { get; set; }
         public int LessonId { get; set; }

@@ -1,5 +1,7 @@
-﻿using Domain.Models;
+﻿using AutoMapper;
+using Domain.Models;
 using Domain.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using TypingWebApi.Domains.Models.Types;
 using TypingWebApi.Dtos;
@@ -11,28 +13,44 @@ namespace TypingWebApi.Controllers
     public class ProgressController : ControllerBase
     {
         private readonly IProgressService _progressService;
-        public ProgressController(IProgressService progressService)
-            => _progressService = progressService;
-
-        [HttpGet("read/{userId}/{lessonId}")]
-        public async Task<IExecutionResponse> ReadbyIdProgress(string userId, int lessonId)
-            => await _progressService.GetByUserAndLessonIdAsync(userId, lessonId);
-
-        [HttpGet("read/{userId}")]
-        public async Task<IExecutionResponse> ReadProgress(string userId)
-          => await _progressService.GetByUserIdAsync(userId);
-
-        [HttpPost("write")]
-        public async Task<IExecutionResponse> WriteProgress(WriteProgressDto dto)
+        private readonly IMapper _mapper;
+        private readonly IValidator<ProgressWriteRequestDto> _validator;
+        public ProgressController(IProgressService progressService, IMapper mapper, 
+            IValidator<ProgressWriteRequestDto> validator)
         {
-            var entity = new LessonProgress
+            _progressService = progressService;
+            _mapper = mapper;
+            _validator = validator;
+        }
+           
+        [HttpGet("{userId}/lesson/{lessonId}")]
+        public async Task<IExecutionResponse> GetByUser(string userId, int lessonId)
+        {
+           return await _progressService.GetByUserAndLessonIdAsync(userId, lessonId);
+        }
+
+        [HttpGet("{userId}")]
+        public async Task<IExecutionResponse> GetByUserAndLesson(string userId)
+        {
+            return await _progressService.GetByUserIdAsync(userId);
+        }
+
+        [HttpPost]
+        public async Task<IExecutionResponse> Upser(ProgressWriteRequestDto progresDto)
+        {
+            var validationResult = await _validator.ValidateAsync(progresDto);
+            if (!validationResult.IsValid)
             {
-                UserId = dto.UserId,
-                LessonId = dto.LessonId,
-                BestWpm = dto.BestWpm,
-                BestRaw = dto.BestRaw,
-                BestAccuracy = dto.BestAccuracy
-            };
+                var problemDetails = new HttpValidationProblemDetails(validationResult.ToDictionary())
+                {
+                    Type = "https://example.com/validation-error",
+                    Title = "Validation Error",
+                    Status = StatusCodes.Status400BadRequest,
+                    Detail = "One or more validation errors occurred."
+                };
+                return ExecutionResponse.Failure(problemDetails.Detail);
+            }
+            var entity = _mapper.Map<LessonProgress>(progresDto);
             return await _progressService.UpsertAsync(entity);
         }
     }

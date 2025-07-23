@@ -63,7 +63,6 @@ namespace Service.Services
 
         public async Task UpdateUser(User userToBeUpdated, User userData)
         {
-            // оновлення даних вручну
             userToBeUpdated.FullName = userData.FullName;
             userToBeUpdated.Email = userData.Email;
 

@@ -1,3 +1,5 @@
+using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +10,7 @@ using System.Text;
 using TypingWebApi.Data.Context;
 using TypingWebApi.Data.Models;
 using TypingWebApi.Extensions;
+using TypingWebApi.Profiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -89,6 +92,11 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+
+builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly, includeInternalTypes: true);
+
+
 
 var app = builder.Build();
 

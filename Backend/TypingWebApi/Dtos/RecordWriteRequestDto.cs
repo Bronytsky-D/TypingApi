@@ -1,8 +1,8 @@
-﻿using TypingWebApi.Data.Models;
+﻿using Domain.Models;
 
 namespace TypingWebApi.Dtos
 {
-    public class WriteRecordDto
+    public class RecordWriteRequestDto
     {
             public int Wpm { get; set; }
             public int Raw { get; set; }
@@ -15,7 +15,7 @@ namespace TypingWebApi.Dtos
 
             public int? Consistency { get; set; }
 
-            public string userId { get; set; }
+            public string UserId { get; set; }
             public int Experience { get; set; }
             public string Language { get; set; }
     }

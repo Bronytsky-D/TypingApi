@@ -1,12 +1,11 @@
-﻿using Domain.Services;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Domain.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using TypingWebApi.Data.Models;
 using TypingWebApi.Domains.Models.Types;
 using TypingWebApi.Dtos;
 using TypingWebApi.Service;
-using static Google.Apis.Requests.BatchRequest;
 
 namespace TypingWebApi.Controllers
 {
@@ -16,43 +15,47 @@ namespace TypingWebApi.Controllers
     {
         private readonly IRecordService _recordService;
         private readonly IUserService _userService;
+        private readonly IMapper _mapper; 
+        private readonly IValidator<RecordWriteRequestDto> _validator;
 
-        public RecordController(IRecordService recordService, IUserService userService)
+        public RecordController(IRecordService recordService, IUserService userService, IMapper mapper,
+            IValidator<RecordWriteRequestDto> validator)
         {
             _recordService = recordService;
             _userService = userService;
+            _mapper = mapper;
+            _validator = validator;
         }
 
-        [HttpPost("write")]
-        public async Task<IExecutionResponse> WriteRecord(WriteRecordDto recordDto)
+        [HttpPost]
+        public async Task<IExecutionResponse> PostRecord(RecordWriteRequestDto recordDto)
         {
-            var record = new Record
+            var validationResult = await _validator.ValidateAsync(recordDto);
+            if (!validationResult.IsValid)
             {
-                DateRecord = DateTime.UtcNow,
-                Wpm = recordDto.Wpm,
-                Raw = recordDto.Raw,
-                Accuracy = recordDto.Accuracy,
-                Consistency = recordDto.Consistency,
-                UserId = recordDto.userId,
-                Chars = recordDto.Chars,
-                MatchTime = recordDto.MatchTime,
-                GameLength = recordDto.GameLength,
-                Mode = recordDto.Mode,
-                Language = recordDto.Language 
-            };
+                var problemDatails = new HttpValidationProblemDetails(validationResult.ToDictionary())
+                {
+                    Type = "https://example.com/validation-error",
+                    Title = "Validation Error",
+                    Status = StatusCodes.Status400BadRequest,
+                    Detail = "One or more validation errors occurred."
+                };
+                return ExecutionResponse.Failure(problemDatails.Detail);
+            }
+            var record = _mapper.Map<Record>(recordDto);
             var response = await _recordService.AddRecordAsync(record);
 
             if (response.Success && recordDto.Experience > 0)
             {
-                await _userService.AddExperienceAsync(recordDto.userId, recordDto.Experience);
+                await _userService.AddExperienceAsync(recordDto.UserId, recordDto.Experience);
             }
             record.User = null;
 
             return response;
         }
 
-        [HttpGet("read/{userId}")]
-        public async Task<IExecutionResponse> GetRecordsByUserId(string userId)
+        [HttpGet("{userId}")]
+        public async Task<IExecutionResponse> GetRecordsByUser(string userId)
         {
             return await _recordService.GetRecordsByUserIdAsync(userId);
         }

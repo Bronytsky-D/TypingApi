@@ -36,6 +36,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Service\TypingWeb.Service.csproj" />
+    <ProjectReference Include="..\TypingWeb.DI\TypingWeb.DI.csproj" />
   </ItemGroup>
 
 </Project>

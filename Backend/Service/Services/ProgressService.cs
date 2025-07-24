@@ -1,11 +1,7 @@
 ﻿using Domain;
 using Domain.Models;
 using Domain.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using TypingWebApi.Domains.Models.Types;
 
 namespace Service.Services

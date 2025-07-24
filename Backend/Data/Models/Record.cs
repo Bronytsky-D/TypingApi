@@ -15,13 +15,10 @@ namespace TypingWebApi.Data.Models
         public int Chars { get; set; }
         public int MatchTime { get; set; }
         public DateTime DateRecord { get; set; } = DateTime.Now;
-
         public GameMode Mode { get; set; } = GameMode.Time; 
         public int GameLength { get; set; } = 60;
-
         public int? Consistency { get; set; }
         public string Language { get; set; } = "en";
-
         public string UserId { get; set; }
         public User User { get; set; }
     }

@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Data\Domain.csproj" />
+    <ProjectReference Include="..\Data\TypingWeb.Domain.csproj" />
   </ItemGroup>
 
 </Project>

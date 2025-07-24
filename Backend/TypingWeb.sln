@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypingWebApi", "TypingWebApi\TypingWebApi.csproj", "{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypingWeb.Api", "TypingWebApi\TypingWeb.Api.csproj", "{5C151F5E-D4AC-48B3-A9A3-BC51F43022AB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{DACB4412-1138-48C3-9D86-3349DE9EB6AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypingWeb.Service", "Service\TypingWeb.Service.csproj", "{DACB4412-1138-48C3-9D86-3349DE9EB6AD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{6FE9D946-E16B-4833-AF8A-A9D0AFDB1FCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypingWeb.Repository", "Repository\TypingWeb.Repository.csproj", "{6FE9D946-E16B-4833-AF8A-A9D0AFDB1FCE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Data\Domain.csproj", "{3D65A624-C008-4E0E-8AB2-E29850489661}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypingWeb.Domain", "Data\TypingWeb.Domain.csproj", "{3D65A624-C008-4E0E-8AB2-E29850489661}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "537aYXYcdOE=",
+  "dgSpecHash": "/K2899dr3V8=",
   "success": true,
-  "projectFilePath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\Repository.csproj",
+  "projectFilePath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\TypingWeb.Repository.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bdima\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\bdima\\.nuget\\packages\\microsoft.aspnet.identity.core\\2.2.4\\microsoft.aspnet.identity.core.2.2.4.nupkg.sha512",
@@ -57,9 +57,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Package 'Microsoft.AspNet.Identity.Core 2.2.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
-      "projectPath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\Repository.csproj",
+      "projectPath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\TypingWeb.Repository.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\Repository.csproj",
+      "filePath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\TypingWeb.Repository.csproj",
       "libraryId": "Microsoft.AspNet.Identity.Core",
       "targetGraphs": [
         "net8.0"

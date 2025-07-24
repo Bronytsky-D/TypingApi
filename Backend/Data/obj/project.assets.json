@@ -822,9 +822,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\Domain.csproj",
-      "projectName": "Domain",
-      "projectPath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\Domain.csproj",
+      "projectUniqueName": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\TypingWeb.Domain.csproj",
+      "projectName": "TypingWeb.Domain",
+      "projectPath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\TypingWeb.Domain.csproj",
       "packagesPath": "C:\\Users\\bdima\\.nuget\\packages\\",
       "outputPath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Data\\obj\\",
       "projectStyle": "PackageReference",

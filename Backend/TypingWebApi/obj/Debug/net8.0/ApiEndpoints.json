@@ -116,7 +116,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
+        "Name": "progresDto",
         "Type": "TypingWebApi.Dtos.ProgressWriteRequestDto",
         "IsRequired": true
       }

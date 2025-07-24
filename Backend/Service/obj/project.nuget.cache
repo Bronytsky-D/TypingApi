@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "u4wZ91vQYjc=",
+  "dgSpecHash": "MoIAG5co18w=",
   "success": true,
-  "projectFilePath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Service.csproj",
+  "projectFilePath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\TypingWeb.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bdima\\.nuget\\packages\\microsoft.aspnet.identity.core\\2.2.4\\microsoft.aspnet.identity.core.2.2.4.nupkg.sha512",
     "C:\\Users\\bdima\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.16\\microsoft.aspnetcore.authentication.jwtbearer.8.0.16.nupkg.sha512",
@@ -39,9 +39,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Package 'Microsoft.AspNet.Identity.Core 2.2.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
-      "projectPath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Service.csproj",
+      "projectPath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\TypingWeb.Service.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Service.csproj",
+      "filePath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\TypingWeb.Service.csproj",
       "libraryId": "Microsoft.AspNet.Identity.Core",
       "targetGraphs": [
         "net8.0"

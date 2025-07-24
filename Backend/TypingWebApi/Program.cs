@@ -1,16 +1,15 @@
-using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using System.Text;
+using TypingWeb.Api.Extensions;
+using TypingWeb.Api.Middleware;
 using TypingWebApi.Data.Context;
 using TypingWebApi.Data.Models;
-using TypingWebApi.Extensions;
-using TypingWebApi.Profiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -94,7 +93,11 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddAutoMapper(typeof(Program));
+
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly, includeInternalTypes: true);
+
+builder.Host.UseSerilog((context, configuration) =>
+   configuration.ReadFrom.Configuration(context.Configuration));
 
 
 
@@ -122,6 +125,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<RequestLogContextMiddleware>(); 
+
+app.UseSerilogRequestLogging(); 
 
 // ? ќЅќ¬'я« ќ¬ќ: активувати пол≥тику CORS
 app.UseCors("AllowFrontend");

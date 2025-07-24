@@ -1,5 +1,4 @@
-﻿using Domain;
-using Domain.Repositories;
+﻿using Domain.Repositories;
 using Domain.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Repository;
@@ -7,8 +6,9 @@ using Repository.Repositories;
 using Service.Services;
 using TypingWebApi.Data;
 using TypingWebApi.Service;
+using Domain;
 
-namespace TypingWebApi.Extensions
+namespace TypingWeb.Api.Extensions
 {
     public static class ServiceExtensions
     {

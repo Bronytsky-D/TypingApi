@@ -496,7 +496,7 @@
           }
         }
       },
-      "Domain/1.0.0": {
+      "TypingWeb.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
@@ -504,27 +504,27 @@
           "Microsoft.EntityFrameworkCore": "8.0.7"
         },
         "compile": {
-          "bin/placeholder/Domain.dll": {}
+          "bin/placeholder/TypingWeb.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Domain.dll": {}
+          "bin/placeholder/TypingWeb.Domain.dll": {}
         }
       },
-      "Repository/1.0.0": {
+      "TypingWeb.Repository/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "Domain": "1.0.0",
           "Microsoft.AspNet.Identity.Core": "2.2.4",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.7",
           "Microsoft.EntityFrameworkCore": "8.0.7",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.4"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.4",
+          "TypingWeb.Domain": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/Repository.dll": {}
+          "bin/placeholder/TypingWeb.Repository.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Repository.dll": {}
+          "bin/placeholder/TypingWeb.Repository.dll": {}
         }
       }
     }
@@ -1245,22 +1245,22 @@
         "system.identitymodel.tokens.jwt.nuspec"
       ]
     },
-    "Domain/1.0.0": {
+    "TypingWeb.Domain/1.0.0": {
       "type": "project",
-      "path": "../Data/Domain.csproj",
-      "msbuildProject": "../Data/Domain.csproj"
+      "path": "../Data/TypingWeb.Domain.csproj",
+      "msbuildProject": "../Data/TypingWeb.Domain.csproj"
     },
-    "Repository/1.0.0": {
+    "TypingWeb.Repository/1.0.0": {
       "type": "project",
-      "path": "../Repository/Repository.csproj",
-      "msbuildProject": "../Repository/Repository.csproj"
+      "path": "../Repository/TypingWeb.Repository.csproj",
+      "msbuildProject": "../Repository/TypingWeb.Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.16",
       "Microsoft.EntityFrameworkCore >= 8.0.7",
-      "Repository >= 1.0.0"
+      "TypingWeb.Repository >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1270,9 +1270,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Service.csproj",
-      "projectName": "Service",
-      "projectPath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\Service.csproj",
+      "projectUniqueName": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\TypingWeb.Service.csproj",
+      "projectName": "TypingWeb.Service",
+      "projectPath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\TypingWeb.Service.csproj",
       "packagesPath": "C:\\Users\\bdima\\.nuget\\packages\\",
       "outputPath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Service\\obj\\",
       "projectStyle": "PackageReference",
@@ -1295,8 +1295,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\Repository.csproj": {
-              "projectPath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\Repository.csproj"
+            "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\TypingWeb.Repository.csproj": {
+              "projectPath": "D:\\Lab\\Typing\\TypingApp\\Backend\\Repository\\TypingWeb.Repository.csproj"
             }
           }
         }

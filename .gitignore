@@ -1,21 +1,25 @@
-# Visual Studio
-.vs/
-*.user
+# Build outputs
+/bin/
+/obj/
+/[Rr]elease/
+/[Dd]ebug/
+/TestResults/
+/*.nupkg
+
+# IDE і редактори
 *.suo
+*.user
+*.userosscache
+*.vs/
+*.vscode/
+*.idea/
 
-# Build results
-bin/
-obj/
-
-# Logs
+# Логи та інші тимчасові файли
 *.log
+*.cache
+*.tmp
+*~bak
 
-# Local configuration
-appsettings.json
-appsettings.*.json
-secrets.json
-.env
-
-# OS-specific
+# Система
 .DS_Store
 Thumbs.db

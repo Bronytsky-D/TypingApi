@@ -1,0 +1,105 @@
+## Ignore Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Ignore build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+*.log
+
+## Ignore build artifacts
+*.dll
+*.exe
+*.app
+*.pdb
+*.cache
+*.ilk
+*.iobj
+*.ipdb
+*.iuser
+*.tmp
+*.tmp_proj
+
+## NuGet packages
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Visual Studio for Mac
+*.pidb
+*.userprefs
+
+## Rider IDE
+.idea/
+*.sln.iml
+
+## Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+## DotCover
+*.dotCover
+
+## Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+## User-specific files
+*.suo
+*.ntvs_analysis.dat
+*.njsproj.user
+*.sln.docstates
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## Entity Framework
+*.edmx.diagram
+*.edmx.sql
+
+## Azure build
+csx/
+*.build.csdef
+
+## JetBrains Rider
+.idea/
+
+## Backup & cache
+*.bak
+*.cache
+*.swp
+*.tmp
+~$*
+
+## dotenv
+.env
+.env.*
+
+## Test results
+TestResults/
+*.TestResults
+
+## publish artifacts
+publish/
+*.Publish.xml
+*.pubxml
+*.publishproj
+
+## local secrets / tools
+secrets.json
+.vscode/
+*.vscode/*
+.terraform/
+
+## Others
+node_modules/
+dist/

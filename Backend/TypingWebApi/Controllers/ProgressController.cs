@@ -4,8 +4,9 @@ using Domain.Services;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TypingWebApi.Domains.Models.Types;
+using Domain.Models.Types;
 using TypingWebApi.Dtos;
+using Repository.ExecutionResponse;
 
 namespace TypingWebApi.Controllers
 {

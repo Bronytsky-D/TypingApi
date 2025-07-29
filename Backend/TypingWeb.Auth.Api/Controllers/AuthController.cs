@@ -2,8 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using TypingWeb.Auth.Api.Dtos;
-using TypingWebApi.Data.Models;
-using TypingWebApi.Domains.Models.Types;
+using Domain.Models.Types;
+using Domain.Models;
+using Repository.ExecutionResponse;
 
 namespace TypingWeb.Auth.Api.Controllers
 {

@@ -3,10 +3,11 @@ using Domain.Services;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TypingWebApi.Data.Models;
-using TypingWebApi.Domains.Models.Types;
+using Domain.Models.Types;
 using TypingWebApi.Dtos;
 using TypingWebApi.Service;
+using Repository.ExecutionResponse;
+using Domain.Models;
 
 namespace TypingWebApi.Controllers
 {

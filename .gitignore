@@ -103,3 +103,7 @@ secrets.json
 ## Others
 node_modules/
 dist/
+
+# Ignore only appsettings JSON files
+appsettings.json
+appsettings.*.json

@@ -1,9 +1,8 @@
-﻿using Domain.Models;
-using Domain;
-using Domain.Repositories;
+﻿using Domain.Repositories;
 using Moq;
 using TypingWebApi.Service;
-using MyRecord = TypingWebApi.Data.Models.Record;
+using MyRecord = Domain.Models.Record;
+using Domain.Models.Types;
 
 
 namespace TypingWeb.Tests.Services.RecordServiceTests

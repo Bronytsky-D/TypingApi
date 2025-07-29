@@ -1,8 +1,8 @@
 ﻿using Moq;
 using Domain.Repositories;
-using Domain;
 using Service.Services;
 using Domain.Models;
+using Domain.Models.Types;
 
 
 namespace TypingWeb.Tests.Services.ProgressServiceTest

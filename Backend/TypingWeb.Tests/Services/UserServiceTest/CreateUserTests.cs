@@ -1,14 +1,8 @@
 ﻿using Service.Services;
-using Domain.Services;
 using Microsoft.AspNetCore.Identity;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TypingWeb.Tests.Utils;
-using TypingWebApi.Data.Models;
+using Domain.Models;
 
 namespace TypingWeb.Tests.Services.UserServiceTest
 {

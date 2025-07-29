@@ -1,9 +1,8 @@
-﻿using AutoMapper;
-using Domain.Services;
+﻿using Domain.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TypingWebApi.Domains.Models.Types;
-using TypingWebApi.Dtos;
+using Domain.Models.Types;
+using Repository.ExecutionResponse;
 
 namespace TypingWebApi.Controllers
 {

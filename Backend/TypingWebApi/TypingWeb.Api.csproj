@@ -35,9 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Data\TypingWeb.Domain.csproj" />
-    <ProjectReference Include="..\Service\TypingWeb.Service.csproj" />
     <ProjectReference Include="..\TypingWeb.DI\TypingWeb.DI.csproj" />
+    <ProjectReference Include="..\TypingWeb.Repository\TypingWeb.Repository.csproj" />
+    <ProjectReference Include="..\TypingWeb.Service\TypingWeb.Service.csproj" />
   </ItemGroup>
 
 </Project>

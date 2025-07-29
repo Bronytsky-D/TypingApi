@@ -1,12 +1,11 @@
-﻿using Domain.Repositories;
+﻿using Domain.Models.Types;
+using Domain.Repositories;
 using Domain.Services;
 using Microsoft.Extensions.DependencyInjection;
-using Repository;
 using Repository.Repositories;
+using Repository.UnitOfWork;
 using Service.Services;
-using TypingWebApi.Data;
 using TypingWebApi.Service;
-using Domain;
 
 namespace TypingWeb.Api.Extensions
 {

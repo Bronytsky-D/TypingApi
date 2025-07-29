@@ -1,13 +1,8 @@
-﻿using Domain;
+﻿using Domain.Models.Types;
 using Domain.Repositories;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TypingWebApi.Service;
-using MyRecord = TypingWebApi.Data.Models.Record;
+using MyRecord = Domain.Models.Record;
 
 
 namespace TypingWeb.Tests.Services.RecordServiceTests

@@ -8,8 +8,8 @@ using Serilog;
 using System.Text;
 using TypingWeb.Api.Extensions;
 using TypingWeb.Api.Middleware;
-using TypingWebApi.Data.Context;
-using TypingWebApi.Data.Models;
+using Repository.Context;
+using Domain.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

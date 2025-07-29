@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Repository\TypingWeb.Repository.csproj" />
+    <ProjectReference Include="..\Service\TypingWeb.Service.csproj" />
+  </ItemGroup>
+
 </Project>

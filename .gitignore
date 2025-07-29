@@ -1,10 +1,17 @@
-## Output каталоги
+## Ignore Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Ignore build results
 [Bb]in/
 [Oo]bj/
 [Ll]og/
 *.log
 
-## Build artifacts
+## Ignore build artifacts
 *.dll
 *.exe
 *.app
@@ -17,38 +24,40 @@
 *.tmp
 *.tmp_proj
 
-## Конфігураційні артефакти публікації
-publish/
-out/
-*.Publish.xml
-*.pubxml
-*.publishproj
-
 ## NuGet packages
 *.nupkg
 *.snupkg
-*.nuspec
 packages/
+*.nuspec
 project.lock.json
 project.fragment.lock.json
+artifacts/
 
-## Visual Studio / .NET
-.vs/
-*.user
-*.suo
-*.sln.docstates
-*.sln.ide
-*.VC.db
-
-## Rider / ReSharper / JetBrains
-.idea/
-*.sln.iml
-*.DotSettings.user
-.ReSharper*/
-
-## Visual Studio for Mac
+# Visual Studio for Mac
 *.pidb
 *.userprefs
+
+## Rider IDE
+.idea/
+*.sln.iml
+
+## Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+## DotCover
+*.dotCover
+
+## Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+## User-specific files
+*.suo
+*.ntvs_analysis.dat
+*.njsproj.user
+*.sln.docstates
 
 ## ASP.NET Scaffolding
 ScaffoldingReadMe.txt
@@ -56,51 +65,41 @@ ScaffoldingReadMe.txt
 ## Entity Framework
 *.edmx.diagram
 *.edmx.sql
-Migrations/  # лише якщо не комітиш
 
 ## Azure build
 csx/
 *.build.csdef
 
-## User-specific
-*.ntvs_analysis.dat
-*.njsproj.user
-appsettings.*.json.user
-launchSettings.json
+## JetBrains Rider
+.idea/
 
-## Test results
-TestResults/
-*.TestResults
+## Backup & cache
+*.bak
+*.cache
+*.swp
+*.tmp
+~$*
 
 ## dotenv
 .env
 .env.*
 
-## Windows / macOS
-Thumbs.db
-ehthumbs.db
-.DS_Store
-Desktop.ini
+## Test results
+TestResults/
+*.TestResults
 
-## System
-*.bak
-*.cache
-*.swp
-*.sdf
-*.tmp
-*.json~
+## publish artifacts
+publish/
+*.Publish.xml
+*.pubxml
+*.publishproj
 
-## Local secrets / tools
+## local secrets / tools
 secrets.json
 .vscode/
 *.vscode/*
+.terraform/
 
 ## Others
 node_modules/
 dist/
-*.db
-*.sqlite
-*.mdf
-*.ldf
-*.csv
-*.tsv

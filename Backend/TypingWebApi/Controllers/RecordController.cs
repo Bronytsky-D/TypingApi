@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Domain.Services;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TypingWebApi.Data.Models;
 using TypingWebApi.Domains.Models.Types;
@@ -9,6 +10,7 @@ using TypingWebApi.Service;
 
 namespace TypingWebApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class RecordController : ControllerBase

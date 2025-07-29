@@ -1,4 +1,4 @@
-﻿namespace TypingWebApi.Dtos
+﻿namespace TypingWeb.Auth.Api.Dtos
 {
     public class GoogleLoginRequestDto
     {

@@ -1,64 +1,70 @@
-﻿using Domain;
-using Domain.Services;
+﻿using Domain.Services;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using TypingWebApi.Data.Models;
+using TypingWebApi.Domains.Models.Types;
 
 namespace Service.Services
 {
     public class UserService : IUserService
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly UserManager<User> _userManager;
 
-        public UserService(IUnitOfWork unitOfWork)
+        public UserService(UserManager<User> userManager)
         {
-            _unitOfWork = unitOfWork;
+            _userManager = userManager;
         }
 
-        public async Task<IEnumerable<User>> GetAllUsers()
+        public async Task<IExecutionResponse> GetAllUsers()
         {
-            return await _unitOfWork.User.GetAllUserAsync();
+            var users = await _userManager.Users.ToListAsync();
+            return ExecutionResponse.Successful(users);
         }
 
-        public async Task<User?> GetUserById(string id)
+        public async Task<IExecutionResponse> GetUserById(string id)
         {
-            return await _unitOfWork.User.GetUserByIdAsync(id);
-        }
-
-        public async Task<User?> GetUserByEmail(string email)
-        {
-            return await _unitOfWork.User.GetUserByEmailAsync(email);
-        }
-
-        public async Task<IdentityResult> CreateUser(User newUser, string password)
-        {
-            var result = await _unitOfWork.User.AddUserAsync(newUser, password);
-            if (result.Succeeded)
+            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == id);
+            if (user == null)
             {
-                await _unitOfWork.User.AddToRoleAsync(newUser, "User");
+                return ExecutionResponse.Failure("User not found");
             }
-
-            return result;
+            return ExecutionResponse.Successful(user);
         }
-        public async Task<IdentityResult> CreateUser(User user)
-        {
-            var result = await _unitOfWork.User.AddUserAsync(user);
-            if (result.Succeeded)
-            {
-                await _unitOfWork.User.AddToRoleAsync(user, "User");
-            }
 
-            await _unitOfWork.CommitAsync();
-            return result;
+        public async Task<IExecutionResponse> GetUserByEmail(string email)
+        {
+            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Email == email);
+            if (user == null)
+            {
+                return ExecutionResponse.Failure("User not found");
+            }
+            return ExecutionResponse.Successful(user);
+        }
+
+        public async Task<IExecutionResponse> CreateUser(User newUser, string password)
+        {
+            var user = await _userManager.CreateAsync(newUser, password);
+            if (user.Succeeded)
+            {
+                await _userManager.AddToRoleAsync(newUser, "User");
+                return ExecutionResponse.Successful(newUser);
+            }
+            return ExecutionResponse.Failure("User not created");
+        }
+        public async Task<IExecutionResponse> CreateUser(User newUser)
+        {
+            var user = await _userManager.CreateAsync(newUser);
+            if (user.Succeeded)
+            {
+                await _userManager.AddToRoleAsync(newUser, "User");
+                return ExecutionResponse.Successful(newUser);
+            }
+            return ExecutionResponse.Failure("User not created");
         }
 
         public async Task<bool> CheckUserPassword(User user, string password)
         {
-            return await _unitOfWork.User.CheckUserPasswordAsync(user, password);
+            return await _userManager.CheckPasswordAsync(user, password);
         }
 
         public async Task UpdateUser(User userToBeUpdated, User userData)
@@ -66,24 +72,27 @@ namespace Service.Services
             userToBeUpdated.FullName = userData.FullName;
             userToBeUpdated.Email = userData.Email;
 
-            await _unitOfWork.User.UpdateAsync(userToBeUpdated);
-            await _unitOfWork.CommitAsync();
+            await _userManager.UpdateAsync(userToBeUpdated);
         }
 
         public async Task DeleteUser(User user)
         {
-            await _unitOfWork.User.RemoveUserAsync(user);
-            await _unitOfWork.CommitAsync();
+            await _userManager.DeleteAsync(user);
         }
 
         public async Task<bool> AddExperienceAsync(string userId, int xp)
         {
-            var user = await _unitOfWork.User.GetUserByIdAsync(userId);
+            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == userId);
             if (user == null)
                 return false;
+            while (user.ExperiencePoints >= 100 * (user.Level + 1))
+            {
+                user.Level++;
 
-            await _unitOfWork.User.AddExperienceAsync(user, xp);
-            await _unitOfWork.CommitAsync();
+                user.Achievements ??= new List<string>();
+                user.Achievements.Add($"Level {user.Level} reached");
+            }
+            await _userManager.UpdateAsync(user);
 
             return true;
         }

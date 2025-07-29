@@ -31,16 +31,15 @@ namespace Service.Services
 
         public string GenerateAccessToken(User user)
         {
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWTSetting:securityKey"]!));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWTSetting:SecurityKey"]!));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var claims = new[]
             {
             new Claim(JwtRegisteredClaimNames.Sub, user.Id),
             new Claim(JwtRegisteredClaimNames.Email, user.Email ?? ""),
-            new Claim(ClaimTypes.Name, user.UserName ?? ""),
             new Claim(ClaimTypes.Role, "User")
-        };
+            };
 
             var token = new JwtSecurityToken(
                 issuer: _config["JWTSetting:validIssuer"],

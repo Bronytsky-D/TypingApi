@@ -24,7 +24,6 @@ namespace TypingWeb.Api.Extensions
             services.AddScoped<IProgressService, ProgressService>();
 
 
-            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRecordRepository, RecordRepository>();
             services.AddScoped<ITokenRepository, TokenRepository>();
             services.AddScoped<IProgressRepository, ProgressRepository>();

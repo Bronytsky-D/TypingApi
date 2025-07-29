@@ -46,7 +46,7 @@ builder.Services.AddAuthentication(opt =>
         ValidateIssuerSigningKey = true,
         ValidAudience = JWTSetting["ValidAudience"],
         ValidIssuer = JWTSetting["ValidIssuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTSetting["securityKey"]))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTSetting["SecurityKey"]))
     };
 });
 
@@ -98,6 +98,8 @@ builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly, includeInte
 
 builder.Host.UseSerilog((context, configuration) =>
    configuration.ReadFrom.Configuration(context.Configuration));
+
+builder.Services.AddAuthorization();
 
 
 

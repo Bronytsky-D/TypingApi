@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
+﻿
 using TypingWebApi.Data.Models;
 using TypingWebApi.Domains.Models.Types;
 

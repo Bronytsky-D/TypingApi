@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TypingWebApi.Dtos
+namespace TypingWeb.Auth.Api.Dtos
 {
-    public class LoginDto
+    public class LoginRequestDto
     {
         [Required]
         public string Email { get; set; } = string.Empty;

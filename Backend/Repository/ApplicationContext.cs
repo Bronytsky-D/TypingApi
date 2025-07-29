@@ -16,7 +16,6 @@ namespace TypingWebApi.Data.Context
             : base(options)
         {
         }
-
         public DbSet<Record> Records { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<LessonProgress> LessonProgress { get; set; }

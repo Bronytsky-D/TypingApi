@@ -2,12 +2,14 @@
 using Domain.Models;
 using Domain.Services;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TypingWebApi.Domains.Models.Types;
 using TypingWebApi.Dtos;
 
 namespace TypingWebApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProgressController : ControllerBase

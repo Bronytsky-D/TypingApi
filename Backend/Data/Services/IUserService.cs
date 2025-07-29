@@ -1,16 +1,15 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using TypingWebApi.Data.Models;
+﻿using TypingWebApi.Data.Models;
+using TypingWebApi.Domains.Models.Types;
 
 namespace Domain.Services
 {
     public interface IUserService
     {
-        public Task<IEnumerable<User>> GetAllUsers();
-        public Task<User> GetUserById(string id);
-        public Task<User> GetUserByEmail(string email);
-        public Task<IdentityResult> CreateUser(User newUser, string password);
-        Task<IdentityResult> CreateUser(User user);
+        public Task<IExecutionResponse> GetAllUsers();
+        public Task<IExecutionResponse> GetUserById(string id);
+        public Task<IExecutionResponse> GetUserByEmail(string email);
+        public Task<IExecutionResponse> CreateUser(User newUser, string password);
+        Task<IExecutionResponse> CreateUser(User user);
 
         public Task<bool> CheckUserPassword(User user, string password);
         public Task UpdateUser(User userToBeUpdated, User user);

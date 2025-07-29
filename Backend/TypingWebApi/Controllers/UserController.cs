@@ -1,31 +1,30 @@
 ﻿using AutoMapper;
 using Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TypingWebApi.Domains.Models.Types;
 using TypingWebApi.Dtos;
 
 namespace TypingWebApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : Controller
     {
         private readonly IUserService _userService;
-        private readonly IMapper _mapper;  
-        public UserController(IUserService userService, IMapper mapper)
+        public UserController(IUserService userService)
         {
             _userService = userService;
-            _mapper = mapper;
         }
 
         [HttpGet("{userId}")]
-        public async Task<ActionResult<UserReadResponeDto>> GetUser(string userId)
+        public async Task<IExecutionResponse> GetUser(string userId)
         {
             var user = await _userService.GetUserById(userId);
             if (user == null)
-                return NotFound();
-            var dto = _mapper.Map<UserReadResponeDto>(user);
-
-            return Ok(dto);
+                return ExecutionResponse.Failure("not founde");
+            return user;
         }
     }
 }

@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypingWeb.Repository", "Rep
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypingWeb.Domain", "Data\TypingWeb.Domain.csproj", "{3D65A624-C008-4E0E-8AB2-E29850489661}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingWeb.Auth.Api", "TypingWeb.Auth.Api\TypingWeb.Auth.Api.csproj", "{313C9A71-6ADE-481C-9529-B7824D4E88B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingWeb.Tests", "TypingWeb.Tests\TypingWeb.Tests.csproj", "{3DD7183F-E826-4D57-9441-89E22060C941}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{3D65A624-C008-4E0E-8AB2-E29850489661}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D65A624-C008-4E0E-8AB2-E29850489661}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D65A624-C008-4E0E-8AB2-E29850489661}.Release|Any CPU.Build.0 = Release|Any CPU
+		{313C9A71-6ADE-481C-9529-B7824D4E88B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{313C9A71-6ADE-481C-9529-B7824D4E88B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{313C9A71-6ADE-481C-9529-B7824D4E88B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{313C9A71-6ADE-481C-9529-B7824D4E88B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DD7183F-E826-4D57-9441-89E22060C941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DD7183F-E826-4D57-9441-89E22060C941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DD7183F-E826-4D57-9441-89E22060C941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DD7183F-E826-4D57-9441-89E22060C941}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

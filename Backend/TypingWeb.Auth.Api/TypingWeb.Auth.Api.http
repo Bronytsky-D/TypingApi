@@ -1,0 +1,6 @@
+@TypingWeb.Auth.Api_HostAddress = http://localhost:5139
+
+GET {{TypingWeb.Auth.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

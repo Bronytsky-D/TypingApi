@@ -19,6 +19,8 @@ namespace TypingWeb.Api.Extensions
 
             services.AddScoped<IRecordService, RecordService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserAuthService, UserAuthService>();
+            services.AddScoped<IUserGameService, UserGameService>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IProgressService, ProgressService>();
 

@@ -7,6 +7,10 @@ using System.Text;
 using TypingWeb.Api.Extensions;
 using Repository.Context;
 using Domain.Models;
+using Infrastructure.ExtenderHandler;
+using FluentValidation;
+using Serilog;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -78,7 +82,20 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
+
+builder.Services.AddAutoMapper(typeof(Program));
+
+builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly, includeInternalTypes: true);
+
+builder.Host.UseSerilog((context, configuration) =>
+   configuration.ReadFrom.Configuration(context.Configuration));
+
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -88,8 +105,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication(); 
 app.UseAuthorization();
+
+app.UseExceptionHandler();
+
 
 app.MapControllers();
 

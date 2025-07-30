@@ -1,10 +1,12 @@
-﻿using Domain.Services;
+﻿using AutoMapper;
+using Domain.Models;
+using Domain.Models.Types;
+using Domain.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
+using Repository.ExecutionResponse;
 using System.IdentityModel.Tokens.Jwt;
 using TypingWeb.Auth.Api.Dtos;
-using Domain.Models.Types;
-using Domain.Models;
-using Repository.ExecutionResponse;
 
 namespace TypingWeb.Auth.Api.Controllers
 {
@@ -14,13 +16,26 @@ namespace TypingWeb.Auth.Api.Controllers
     public class AuthController : Controller
     {
         private readonly IUserService _userService;
+        private readonly IUserAuthService _userAuthService;
         private readonly ITokenService _tokenService;
+        private readonly IMapper _mapper;
+        private readonly IValidator<LoginRequestDto> _validatorLogin;
+        private readonly IValidator<RegisterRequestDto> _validatorRegister;
+
         public AuthController(
            IUserService userService,
-           ITokenService tokenService)
+           IUserAuthService userAuthService,
+           ITokenService tokenService,
+           IMapper mapper,
+           IValidator<LoginRequestDto> validatorLogin,
+           IValidator<RegisterRequestDto> validatorRegister)
         {
             _userService = userService;
+            _userAuthService = userAuthService;
             _tokenService = tokenService;
+            _mapper = mapper;
+            _validatorLogin = validatorLogin;
+            _validatorRegister = validatorRegister;
         }
         private void SetRefreshTokenCookie(string refreshToken)
         {
@@ -36,15 +51,20 @@ namespace TypingWeb.Auth.Api.Controllers
         [HttpPost("register")]
         public async Task<IExecutionResponse> Register(RegisterRequestDto dto)
         {
-            if (!ModelState.IsValid)
-                return ExecutionResponse.Failure("Invalid model state.");
-
-            var user = new User
+            var validationResult = await _validatorRegister.ValidateAsync(dto);
+            if(!validationResult.IsValid)
             {
-                Email = dto.Email,
-                FullName = dto.FullName,
-                UserName = dto.Email
-            };
+                var problemDatails = new HttpValidationProblemDetails(validationResult.ToDictionary())
+                {
+                    Type = "https://example.com/validation-error",
+                    Title = "Validation Error",
+                    Status = StatusCodes.Status400BadRequest,
+                    Detail = "One or more validation errors occurred."
+                };
+                return ExecutionResponse.Failure(problemDatails.Detail);
+            }
+
+            var user = _mapper.Map<User>(dto);
 
             var result = await _userService.CreateUser(user, dto.Password);
             if (!result.Success)
@@ -61,15 +81,25 @@ namespace TypingWeb.Auth.Api.Controllers
         [HttpPost("login")]
         public async Task<IExecutionResponse> Login(LoginRequestDto dto)
         {
-            if (!ModelState.IsValid)
-                return ExecutionResponse.Failure("Invalid model state.");
+            var validationResult = await _validatorLogin.ValidateAsync(dto);
+            if(!validationResult.IsValid)
+            {
+                var problemDatails = new HttpValidationProblemDetails(validationResult.ToDictionary())
+                {
+                    Type = "https://example.com/validation-error",
+                    Title = "Validation Error",
+                    Status = StatusCodes.Status400BadRequest,
+                    Detail = "One or more validation errors occurred."
+                };
+                return ExecutionResponse.Failure(problemDatails.Detail);
+            }
 
             var userRespone = await _userService.GetUserByEmail(dto.Email);
             var user = userRespone.Result as User;
             if (user == null)
                 return ExecutionResponse.Failure("User not found");
 
-            var result = await _userService.CheckUserPassword(user, dto.Password);
+            var result = await _userAuthService.CheckUserPassword(user, dto.Password);
             if (!result)
                 return ExecutionResponse.Failure("Invalid Password");
 

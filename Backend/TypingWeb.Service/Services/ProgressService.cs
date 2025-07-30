@@ -10,7 +10,10 @@ namespace Service.Services
         private readonly IUnitOfWork _unitOfWork;
         const int MAX_WPM = 50;
 
-        public ProgressService(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
+        public ProgressService(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
 
         public async Task<IExecutionResponse> GetByUserAndLessonIdAsync(string userId, int lessonId)
         {
@@ -33,11 +36,13 @@ namespace Service.Services
             return ExecutionResponse.Successful(progresses);
         }
 
-
         public async Task<IExecutionResponse> UpsertAsync(LessonProgress dto)
         {
+            if (dto == null)
+                return ExecutionResponse.Failure("Input data is required");
+
             if (string.IsNullOrWhiteSpace(dto.UserId) || dto.LessonId <= 0)
-                return ExecutionResponse.Failure("Invalid input");
+                return ExecutionResponse.Failure("Invalid userId or lessonId");
 
             var entry = await _unitOfWork.Progress.GetByUserAndLessonAsync(dto.UserId, dto.LessonId);
             var pct = Math.Min(Math.Round(dto.BestWpm / (double)MAX_WPM * 100), 100);
@@ -45,6 +50,7 @@ namespace Service.Services
             if (entry == null)
             {
                 dto.ProgressPercent = pct;
+                dto.LastUpdated = DateTime.UtcNow;
                 await _unitOfWork.Progress.AddAsync(dto);
             }
             else if (dto.BestWpm > entry.BestWpm)
@@ -57,8 +63,18 @@ namespace Service.Services
                 _unitOfWork.Progress.Update(entry);
             }
 
-            await _unitOfWork.CommitAsync();
+            try
+            {
+                await _unitOfWork.CommitAsync();
+            }
+            catch (Exception ex)
+            {
+                // Логування винятку ex
+                return ExecutionResponse.Failure("Error saving progress");
+            }
+
             return ExecutionResponse.Successful(dto);
         }
+
     }
 }

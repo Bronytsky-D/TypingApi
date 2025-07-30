@@ -1,6 +1,7 @@
-﻿using Serilog.Context;
+﻿using Microsoft.AspNetCore.Http;
+using Serilog.Context;
 
-namespace TypingWeb.Api.Middleware
+namespace Infrastructure.Middleware
 {
     public class RequestLogContextMiddleware
     {

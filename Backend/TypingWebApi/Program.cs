@@ -1,15 +1,16 @@
+using Domain.Models;
 using FluentValidation;
+using Infrastructure.ExtenderHandler;
+using Infrastructure.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Repository.Context;
 using Serilog;
 using System.Text;
 using TypingWeb.Api.Extensions;
-using TypingWeb.Api.Middleware;
-using Repository.Context;
-using Domain.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -92,6 +93,9 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
+
 builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly, includeInternalTypes: true);
@@ -100,7 +104,6 @@ builder.Host.UseSerilog((context, configuration) =>
    configuration.ReadFrom.Configuration(context.Configuration));
 
 builder.Services.AddAuthorization();
-
 
 
 var app = builder.Build();
@@ -137,6 +140,9 @@ app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseExceptionHandler();
+
 
 app.MapControllers();
 app.Run();

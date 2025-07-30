@@ -19,6 +19,10 @@ namespace Service.Services
         public async Task<IExecutionResponse> GetAllUsers()
         {
             var users = await _userManager.Users.ToListAsync();
+            if(users == null || !users.Any())
+            {
+                return ExecutionResponse.Failure("No users found");
+            }
             return ExecutionResponse.Successful(users);
         }
 
@@ -42,60 +46,37 @@ namespace Service.Services
             return ExecutionResponse.Successful(user);
         }
 
-        public async Task<IExecutionResponse> CreateUser(User newUser, string password)
+        public async Task<IExecutionResponse> CreateUser(User newUser, string ?password = null)
         {
-            var user = await _userManager.CreateAsync(newUser, password);
-            if (user.Succeeded)
+            IdentityResult identityResult = password == null
+                ?await _userManager.CreateAsync(newUser)
+                :await _userManager.CreateAsync(newUser, password);
+
+            if (!identityResult.Succeeded)
             {
-                await _userManager.AddToRoleAsync(newUser, "User");
-                return ExecutionResponse.Successful(newUser);
+                var errors = string.Join(", ", identityResult.Errors.Select(e => e.Description));
+                return ExecutionResponse.Failure(errors);
             }
-            return ExecutionResponse.Failure("User not created");
-        }
-        public async Task<IExecutionResponse> CreateUser(User newUser)
-        {
-            var user = await _userManager.CreateAsync(newUser);
-            if (user.Succeeded)
+
+            var roleResult = await _userManager.AddToRoleAsync(newUser, "User");
+
+            if (!roleResult.Succeeded)
             {
-                await _userManager.AddToRoleAsync(newUser, "User");
-                return ExecutionResponse.Successful(newUser);
+                var errors = string.Join(", ", roleResult.Errors.Select(e => e.Description));
+                return ExecutionResponse.Failure(errors);
             }
-            return ExecutionResponse.Failure("User not created");
+            return ExecutionResponse.Successful(newUser);
         }
 
-        public async Task<bool> CheckUserPassword(User user, string password)
+        public async Task<IExecutionResponse> DeleteUser(User user)
         {
-            return await _userManager.CheckPasswordAsync(user, password);
-        }
-
-        public async Task UpdateUser(User userToBeUpdated, User userData)
-        {
-            userToBeUpdated.FullName = userData.FullName;
-            userToBeUpdated.Email = userData.Email;
-
-            await _userManager.UpdateAsync(userToBeUpdated);
-        }
-
-        public async Task DeleteUser(User user)
-        {
-            await _userManager.DeleteAsync(user);
-        }
-
-        public async Task<bool> AddExperienceAsync(string userId, int xp)
-        {
-            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == userId);
-            if (user == null)
-                return false;
-            while (user.ExperiencePoints >= 100 * (user.Level + 1))
+            IdentityResult deleteResult = await _userManager.DeleteAsync(user);
+            if (!deleteResult.Succeeded)
             {
-                user.Level++;
-
-                user.Achievements ??= new List<string>();
-                user.Achievements.Add($"Level {user.Level} reached");
+                var errors = string.Join(", ", deleteResult.Errors.Select(e => e.Description));
+                return ExecutionResponse.Failure(errors);
             }
-            await _userManager.UpdateAsync(user);
-
-            return true;
+            return ExecutionResponse.Successful(null);
         }
     }
 }

@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using Domain.Models;
-using Domain.Models.Types;
-using Domain.Services;
+
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
-using Repository.ExecutionResponse;
 using System.IdentityModel.Tokens.Jwt;
 using TypingWeb.Auth.Api.Dtos;
+using TypingWeb.Common;
+using TypingWeb.Domain;
+using TypingWeb.Domain.Abstractions.Services;
 
 namespace TypingWeb.Auth.Api.Controllers
 {
@@ -51,95 +51,95 @@ namespace TypingWeb.Auth.Api.Controllers
         [HttpPost("register")]
         public async Task<IExecutionResponse> Register(RegisterRequestDto dto)
         {
-            var validationResult = await _validatorRegister.ValidateAsync(dto);
-            if(!validationResult.IsValid)
-            {
-                var problemDatails = new HttpValidationProblemDetails(validationResult.ToDictionary())
-                {
-                    Type = "https://example.com/validation-error",
-                    Title = "Validation Error",
-                    Status = StatusCodes.Status400BadRequest,
-                    Detail = "One or more validation errors occurred."
-                };
-                return ExecutionResponse.Failure(problemDatails.Detail);
-            }
+            //var validationResult = await _validatorRegister.ValidateAsync(dto);
+            //if(!validationResult.IsValid)
+            //{
+            //    var problemDatails = new HttpValidationProblemDetails(validationResult.ToDictionary())
+            //    {
+            //        Type = "https://example.com/validation-error",
+            //        Title = "Validation Error",
+            //        Status = StatusCodes.Status400BadRequest,
+            //        Detail = "One or more validation errors occurred."
+            //    };
+            //    return ExecutionResponse.Failure(problemDatails.Detail);
+            //}
 
-            var user = _mapper.Map<User>(dto);
+            //var user = _mapper.Map<User>(dto);
 
-            var result = await _userService.CreateUser(user, dto.Password);
-            if (!result.Success)
-                return result;
+            //var result = await _userService.CreateUser(user, dto.Password);
+            //if (!result.Success)
+            //    return result;
 
-            var accessToken = _tokenService.GenerateAccessToken(user);
-            var refreshToken = _tokenService.GenerateRefreshToken();
-            await _tokenService.SaveRefreshTokenAsync(user, refreshToken);
+            //var accessToken = _tokenService.GenerateAccessToken(user);
+            //var refreshToken = _tokenService.GenerateRefreshToken();
+            //await _tokenService.SaveRefreshTokenAsync(user, refreshToken);
 
-            SetRefreshTokenCookie(refreshToken);
+            //SetRefreshTokenCookie(refreshToken);
 
-            return ExecutionResponse.Successful(accessToken);
+            return ExecutionResponse.Successful(true);
         }
         [HttpPost("login")]
         public async Task<IExecutionResponse> Login(LoginRequestDto dto)
         {
-            var validationResult = await _validatorLogin.ValidateAsync(dto);
-            if(!validationResult.IsValid)
-            {
-                var problemDatails = new HttpValidationProblemDetails(validationResult.ToDictionary())
-                {
-                    Type = "https://example.com/validation-error",
-                    Title = "Validation Error",
-                    Status = StatusCodes.Status400BadRequest,
-                    Detail = "One or more validation errors occurred."
-                };
-                return ExecutionResponse.Failure(problemDatails.Detail);
-            }
+            //var validationResult = await _validatorLogin.ValidateAsync(dto);
+            //if(!validationResult.IsValid)
+            //{
+            //    var problemDatails = new HttpValidationProblemDetails(validationResult.ToDictionary())
+            //    {
+            //        Type = "https://example.com/validation-error",
+            //        Title = "Validation Error",
+            //        Status = StatusCodes.Status400BadRequest,
+            //        Detail = "One or more validation errors occurred."
+            //    };
+            //    return ExecutionResponse.Failure(problemDatails.Detail);
+            //}
 
-            var userRespone = await _userService.GetUserByEmail(dto.Email);
-            var user = userRespone.Result as User;
-            if (user == null)
-                return ExecutionResponse.Failure("User not found");
+            //var userRespone = await _userService.GetUserByEmail(dto.Email);
+            //var user = userRespone.Result as User;
+            //if (user == null)
+            //    return ExecutionResponse.Failure("User not found");
 
-            var result = await _userAuthService.CheckUserPassword(user, dto.Password);
-            if (!result)
-                return ExecutionResponse.Failure("Invalid Password");
+            //var result = await _userAuthService.CheckUserPassword(user, dto.Password);
+            //if (!result)
+            //    return ExecutionResponse.Failure("Invalid Password");
 
-            var accessToken = _tokenService.GenerateAccessToken(user);
-            var refreshToken = _tokenService.GenerateRefreshToken();
-            await _tokenService.SaveRefreshTokenAsync(user, refreshToken);
+            //var accessToken = _tokenService.GenerateAccessToken(user);
+            //var refreshToken = _tokenService.GenerateRefreshToken();
+            //await _tokenService.SaveRefreshTokenAsync(user, refreshToken);
 
-            SetRefreshTokenCookie(refreshToken);
+            //SetRefreshTokenCookie(refreshToken);
 
-            return ExecutionResponse.Successful(accessToken);
+            return ExecutionResponse.Successful(true);
         }
         [HttpPost("refresh")]
         public async Task<IExecutionResponse> Refresh()
         {
-            var refreshToken = Request.Cookies["refreshToken"];
-            if (string.IsNullOrEmpty(refreshToken))
-                return ExecutionResponse.Failure("Refresh token not found");
+            //var refreshToken = Request.Cookies["refreshToken"];
+            //if (string.IsNullOrEmpty(refreshToken))
+            //    return ExecutionResponse.Failure("Refresh token not found");
 
-            var userId = GetUserIdFromExpiredAccessToken();
-            if (string.IsNullOrEmpty(userId))
-                return ExecutionResponse.Failure("UserId not found");
+            //var userId = GetUserIdFromExpiredAccessToken();
+            //if (string.IsNullOrEmpty(userId))
+            //    return ExecutionResponse.Failure("UserId not found");
 
-            var token = await _tokenService.GetValidRefreshTokenAsync(userId, refreshToken);
-            if (token == null)
-                return ExecutionResponse.Failure("Invalid refresh token");
+            //var token = await _tokenService.GetValidRefreshTokenAsync(userId, refreshToken);
+            //if (token == null)
+            //    return ExecutionResponse.Failure("Invalid refresh token");
 
-            token.IsRevoked = true;
+            //token.IsRevoked = true;
 
-            var userRespone = await _userService.GetUserById(userId);
-            var user = userRespone.Result as User;
-            if (user == null)
-                return ExecutionResponse.Failure("User not found");
+            //var userRespone = await _userService.GetUserById(userId);
+            //var user = userRespone.Result as User;
+            //if (user == null)
+            //    return ExecutionResponse.Failure("User not found");
 
-            var newAccess = _tokenService.GenerateAccessToken(user);
-            var newRefresh = _tokenService.GenerateRefreshToken();
-            await _tokenService.SaveRefreshTokenAsync(user, newRefresh);
+            //var newAccess = _tokenService.GenerateAccessToken(user);
+            //var newRefresh = _tokenService.GenerateRefreshToken();
+            //await _tokenService.SaveRefreshTokenAsync(user, newRefresh);
 
-            SetRefreshTokenCookie(newRefresh);
+            //SetRefreshTokenCookie(newRefresh);
 
-            return ExecutionResponse.Successful(newAccess);
+            return ExecutionResponse.Successful(true);
         }
         [HttpPost("logout")]
         public IActionResult Logout()

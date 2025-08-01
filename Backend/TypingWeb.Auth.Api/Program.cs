@@ -5,11 +5,11 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using TypingWeb.Api.Extensions;
-using Repository.Context;
-using Domain.Models;
-using Infrastructure.ExtenderHandler;
+
 using FluentValidation;
 using Serilog;
+using TypingWeb.Infrastructure.PostgreSQL;
+using TypingWeb.Auth.Api.Middleware;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,9 +24,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationContext>(option =>
     option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddIdentity<User, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationContext>()
-    .AddDefaultTokenProviders();
+//builder.Services.AddIdentity<User, IdentityRole>()
+//    .AddEntityFrameworkStores<ApplicationContext>()
+//    .AddDefaultTokenProviders();
 
 var jwtSettings = builder.Configuration.GetSection("JWTSetting");
 var secretKey = builder.Configuration["JWTSetting:SecurityKey"];

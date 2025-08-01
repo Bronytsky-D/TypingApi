@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Domain.Models;
+
 using TypingWeb.Auth.Api.Dtos;
 
 namespace TypingWeb.Auth.Api.Profiles
@@ -8,8 +8,8 @@ namespace TypingWeb.Auth.Api.Profiles
     {
         public UserRegistrMappingProfile() 
         {
-            CreateMap<RegisterRequestDto, User>()
-                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Email));
+            //CreateMap<RegisterRequestDto, User>()
+            //    .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Email));
         }
     }
 }

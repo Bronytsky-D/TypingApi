@@ -19,9 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TypingWeb.DI\TypingWeb.DI.csproj" />
+    <ProjectReference Include="..\TypingWeb.Aplication\TypingWeb.Aplication.csproj" />
     <ProjectReference Include="..\TypingWeb.Infrastructure\TypingWeb.Infrastructure.csproj" />
-    <ProjectReference Include="..\TypingWeb.Service\TypingWeb.Service.csproj" />
+    <ProjectReference Include="..\TypingWeb.IoC\TypingWeb.IoC.csproj" />
   </ItemGroup>
 
 </Project>

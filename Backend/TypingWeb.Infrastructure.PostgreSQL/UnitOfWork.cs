@@ -9,8 +9,8 @@ namespace TypingWeb.Infrastructure.PostgreSQL
     {
         private readonly ApplicationContext _context;
         private readonly IMapper _mapper;
-        //private RecordRepository _recordRepository;
-        //private TokenRepository _refreshTokenRepository;
+        private RecordRepository _recordRepository;
+        private TokenRepository _refreshTokenRepository;
         private ProgressRepository _progrssRepository;
 
 
@@ -19,8 +19,8 @@ namespace TypingWeb.Infrastructure.PostgreSQL
             _context = context;
             _mapper = mapper;
         }
-        //public IRecordRepository Record => _recordRepository ??= new RecordRepository(_context);
-        //public ITokenRepository RefreshToken => _refreshTokenRepository ??= new TokenRepository(_context);
+        public IRecordRepository Record => _recordRepository ??= new RecordRepository(_context, _mapper);
+        public ITokenRepository RefreshToken => _refreshTokenRepository ??= new TokenRepository(_context, _mapper);
 
         public IProgressRepository Progress => _progrssRepository ??= new ProgressRepository(_context, _mapper);
 

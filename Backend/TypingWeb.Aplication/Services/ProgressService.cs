@@ -61,7 +61,7 @@ namespace TypingWeb.Service.Services
                 entry.BestAccuracy = dto.BestAccuracy;
                 entry.ProgressPercent = pct;
                 entry.LastUpdated = DateTime.UtcNow;
-                await _unitOfWork.Progress.Update(entry);
+                await _unitOfWork.Progress.UpdateAsync(entry);
             }
 
             try

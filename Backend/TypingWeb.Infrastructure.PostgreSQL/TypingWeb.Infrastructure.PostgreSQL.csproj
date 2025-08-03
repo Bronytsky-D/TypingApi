@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TypingWeb.Domain\TypingWeb.Domain.Models.csproj" />
+    <ProjectReference Include="..\TypingWeb.Domain\TypingWeb.Domain.csproj" />
     <ProjectReference Include="..\TypingWeb.Infrastructure\TypingWeb.Infrastructure.csproj" />
   </ItemGroup>
 

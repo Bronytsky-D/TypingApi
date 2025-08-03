@@ -10,70 +10,75 @@ using TypingWeb.Infrastructure;
 
 namespace TypingWeb.Service.Services
 {
-    public class TokenService: ITokenService
+    public class TokenService : ITokenService
     {
-        ////private readonly IUnitOfWork _unitOfWork;
-        //private readonly IConfiguration _config;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IConfiguration _config;
 
-        //public TokenService(IUnitOfWork unitOfWork, IConfiguration config)
-        //{
-        //    _unitOfWork = unitOfWork;
-        //    _config = config;
-        //}
+        public TokenService(IUnitOfWork unitOfWork, IConfiguration config)
+        {
+            _unitOfWork = unitOfWork;
+            _config = config;
+        }
 
-        //public string GenerateAccessToken(UserEntity user)
-        //{
-        //    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWTSetting:SecurityKey"]!));
-        //    var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+        public string GenerateAccessToken(UserEntity user)
+        {
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWTSetting:SecurityKey"]!));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-        //    var claims = new[]
-        //    {
-        //    new Claim(JwtRegisteredClaimNames.Sub, user.Id),
-        //    new Claim(JwtRegisteredClaimNames.Email, user.Email ?? ""),
-        //    new Claim(ClaimTypes.Role, "User")
-        //    };
+            var claims = new[]
+            {
+            new Claim(JwtRegisteredClaimNames.Sub, user.Id),
+            new Claim(JwtRegisteredClaimNames.Email, user.Email ?? ""),
+            new Claim(ClaimTypes.Role, "User")
+            };
 
-        //    var token = new JwtSecurityToken(
-        //        issuer: _config["JWTSetting:validIssuer"],
-        //        audience: _config["JWTSetting:validAudience"],
-        //        claims: claims,
-        //        expires: DateTime.UtcNow.AddMinutes(15),
-        //        signingCredentials: creds);
+            var token = new JwtSecurityToken(
+                issuer: _config["JWTSetting:validIssuer"],
+                audience: _config["JWTSetting:validAudience"],
+                claims: claims,
+                expires: DateTime.UtcNow.AddMinutes(15),
+                signingCredentials: creds);
 
-        //    return new JwtSecurityTokenHandler().WriteToken(token);
-        //}
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
 
-        //public string GenerateRefreshToken()
-        //{
-        //    return Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
-        //}
+        public string GenerateRefreshToken()
+        {
+            return Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
+        }
 
-        //public async Task SaveRefreshTokenAsync(UserEntity user, string token)
-        //{
-        //    var refresh = new RefreshTokenEntity
-        //    {
-        //        Token = token,
-        //        UserId = user.Id,
-        //        ExpiresAt = DateTime.UtcNow.AddDays(7),
-        //    };
+        public async Task SaveRefreshTokenAsync(UserEntity user, string token)
+        {
+            var refresh = new RefreshTokenEntity
+            {
+                Token = token,
+                UserId = user.Id,
+                ExpiresAt = DateTime.UtcNow.AddDays(7),
+            };
 
-        //    await _unitOfWork.RefreshToken.AddRefreshTokenAsync(refresh);
-        //    await _unitOfWork.CommitAsync();
-        //}
+            await _unitOfWork.RefreshToken.AddAsync(refresh);
+            await _unitOfWork.CommitAsync();
+        }
 
-        //public async Task<RefreshTokenEntity?> GetValidRefreshTokenAsync(string userId, string refreshToken)
-        //{
-        //    var token = await _unitOfWork.RefreshToken.GetRefreshTokenByIdAsync(refreshToken);
+        public async Task<RefreshTokenEntity?> GetValidRefreshTokenAsync(string userId, string refreshToken)
+        {
+            var allTokens = await _unitOfWork.RefreshToken.GetByIdAsync(userId);
+            var validToken = allTokens
+                  .SingleOrDefault(t =>
+                      t.Token == refreshToken &&
+                      !t.IsRevoked &&
+                      t.ExpiresAt > DateTime.UtcNow);
+            var invalidTokens = allTokens
+                  .Where(t => t.Token != refreshToken || t.IsRevoked || t.ExpiresAt <= DateTime.UtcNow);
 
-        //    if (token != null &&
-        //        token.UserId == userId &&
-        //        !token.IsRevoked &&
-        //        token.ExpiresAt > DateTime.UtcNow)
-        //    {
-        //        return token;
-        //    }
+            foreach (var bad in invalidTokens)
+            {
+                await _unitOfWork.RefreshToken.RemoveAsync(bad);
+            }
 
-        //    return null;
-        //}
+
+            return validToken;
+        }
     }
 }

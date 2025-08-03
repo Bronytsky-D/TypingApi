@@ -2,13 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using TypingWeb.Domain.Models.Entities;
 using TypingWeb.Domain.Abstractions.Services;
+using TypingWeb.Infrastructure.PostgreSQL.Models;
+using AutoMapper;
 
 namespace TypingWeb.Service.Services
 {
     public  class UserGameService : IUserGameService
     {
-        private readonly UserManager<UserEntity> _userManager;
-        public UserGameService(UserManager<UserEntity> userManager)
+        private readonly UserManager<User> _userManager;
+        public UserGameService(UserManager<User> userManager)
         {
             _userManager = userManager;
         }

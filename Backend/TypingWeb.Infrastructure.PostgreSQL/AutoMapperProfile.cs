@@ -4,12 +4,15 @@ using TypingWeb.Infrastructure.PostgreSQL.Models;
 
 namespace TypingWeb.Infrastructure.PostgreSQL
 {
-    internal class AutoMapperProfile : Profile
+    public class AutoMapperProfile : Profile
     {
         public AutoMapperProfile()
         {
-            CreateMap<LessonProgress, LessonProgressEntity>().ReverseMap();
-            CreateMap<Record, RecordEntity>().ReverseMap();
+            CreateMap<LessonProgress, LessonProgressEntity>();
+            CreateMap<LessonProgressEntity, LessonProgress>();
+            CreateMap<Record, RecordEntity>()
+                .ReverseMap()
+                .ForMember(dest => dest.User, opt => opt.Ignore());
             CreateMap<RefreshToken, RefreshTokenEntity>().ReverseMap();
             CreateMap<User, UserEntity>().ReverseMap();
         }

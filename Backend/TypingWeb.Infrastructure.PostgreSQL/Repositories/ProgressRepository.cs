@@ -37,7 +37,7 @@ namespace TypingWeb.Infrastructure.PostgreSQL.Repositories
 
             return _mapper.Map<LessonProgressEntity>(entity);
         }
-
+                        
         public async Task<IEnumerable<LessonProgressEntity>> GetByUserAsync(string userId)
         {
             var entites = await _context.Set<LessonProgress>()
@@ -47,7 +47,7 @@ namespace TypingWeb.Infrastructure.PostgreSQL.Repositories
             return _mapper.Map<IEnumerable<LessonProgressEntity>>(entites);
         }
 
-        public async Task<IExecutionResponse> Remove(LessonProgressEntity model)
+        public async Task<IExecutionResponse> RemoveAsync(LessonProgressEntity model)
         {
             var entity = _mapper.Map<LessonProgress>(model);
             _context.Set<LessonProgress>().Remove(entity);
@@ -56,7 +56,7 @@ namespace TypingWeb.Infrastructure.PostgreSQL.Repositories
             return ExecutionResponse.Successful(entity.Id);
         }
 
-        public async Task<IExecutionResponse> Update(LessonProgressEntity model)
+        public async Task<IExecutionResponse> UpdateAsync(LessonProgressEntity model)
         {
             var entity = _mapper.Map<LessonProgress>(model);
             _context.Set<LessonProgress>().Update(entity);

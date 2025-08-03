@@ -1,4 +1,3 @@
-
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -7,9 +6,12 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text;
+using TypingWeb.Infrastructure.PostgreSQL;
+using TypingWeb.Infrastructure.PostgreSQL.Models;
 using TypingWeb.IoC;
 using TypingWeb.Presentation.Api.Middleware;
 using TypingWeb.Presentation.Api.Middlewares;
+using TypingWebApi.Profiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,14 +21,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddDbContext<ApplicationContext>(option =>
-//    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<ApplicationContext>(option =>
+    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-//builder.Services.AddIdentity<User, IdentityRole>()
-//    .AddEntityFrameworkStores<ApplicationContext>()
-//    .AddDefaultTokenProviders();
+builder.Services.AddIdentity<User, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.RegisterServices(builder.Configuration);
+
 
 builder.Services.AddAuthentication(opt =>
 {
@@ -95,7 +98,10 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 
-builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddAutoMapper(
+    typeof(Program).Assembly,
+    typeof(TypingWeb.Infrastructure.PostgreSQL.AutoMapperProfile).Assembly
+);
 
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly, includeInternalTypes: true);
 

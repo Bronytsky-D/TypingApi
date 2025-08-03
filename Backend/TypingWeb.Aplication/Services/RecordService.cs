@@ -22,8 +22,8 @@ namespace TypingWeb.Service.Services
                 return ExecutionResponse.Failure("userId is null or empty");
             }
 
-            //var records = await _unitOfWork.Record.GetRecordsByUserIdAsync(userId);
-            return ExecutionResponse.Successful(true);
+            var records = await _unitOfWork.Record.GetByUserAsync(userId);
+            return ExecutionResponse.Successful(records);
         }
 
         public async Task<IExecutionResponse> AddRecordAsync(RecordEntity record)
@@ -33,10 +33,10 @@ namespace TypingWeb.Service.Services
                 return ExecutionResponse.Failure("userId is null or empty");
             }
 
-            //await _unitOfWork.Record.AddRecordAsync(record);
-            //await _unitOfWork.CommitAsync();
+            var result = await _unitOfWork.Record.AddAsync(record);
+            await _unitOfWork.CommitAsync();
 
-            return ExecutionResponse.Successful(true);
+            return ExecutionResponse.Successful(result);
         }
     }
 }

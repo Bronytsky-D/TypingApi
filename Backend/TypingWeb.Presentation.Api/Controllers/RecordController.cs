@@ -12,25 +12,22 @@ using TypingWeb.Domain.Models.Entities;
 
 namespace TypingWebApi.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class RecordController : ControllerBase
     {
         private readonly IRecordService _recordService;
         private readonly IUserGameService _userGameService;
-        private readonly IUserService _userService;
         private readonly IMapper _mapper; 
         private readonly IValidator<RecordWriteRequestDto> _validator;
 
         public RecordController(IRecordService recordService, 
             IUserGameService userGameService,
-            IUserService userService,
             IMapper mapper,
             IValidator<RecordWriteRequestDto> validator)
         {
             _recordService = recordService;
-            _userService = userService;
             _mapper = mapper;
             _validator = validator;
             _userGameService = userGameService;
@@ -58,7 +55,6 @@ namespace TypingWebApi.Controllers
             {
                 await _userGameService.AddExperienceAsync(recordDto.UserId, recordDto.Experience);
             }
-            //record.User = null;
 
             return response;
         }

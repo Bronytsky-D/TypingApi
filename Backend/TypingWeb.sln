@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypingWeb.Domain.Models", "TypingWeb.Domain\TypingWeb.Domain.Models.csproj", "{3D65A624-C008-4E0E-8AB2-E29850489661}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypingWeb.Domain", "TypingWeb.Domain\TypingWeb.Domain.csproj", "{3D65A624-C008-4E0E-8AB2-E29850489661}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingWeb.Auth.Api", "TypingWeb.Auth.Api\TypingWeb.Auth.Api.csproj", "{313C9A71-6ADE-481C-9529-B7824D4E88B4}"
 EndProject

@@ -1,4 +1,5 @@
-﻿using TypingWeb.Domain.Models.Entities;
+﻿
+using TypingWeb.Domain.Models.Entities;
 
 namespace TypingWeb.Infrastructure.Repositories
 {

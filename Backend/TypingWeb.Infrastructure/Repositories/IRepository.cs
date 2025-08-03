@@ -8,7 +8,7 @@ namespace TypingWeb.Infrastructure.Repositories
         //Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate);
         Task<IEnumerable<T>> GetAllAsync();
         Task<IExecutionResponse> AddAsync(T entity);
-        Task<IExecutionResponse> Remove(T entity);
-        Task<IExecutionResponse> Update(T entity);
+        Task<IExecutionResponse> RemoveAsync(T entity);
+        Task<IExecutionResponse> UpdateAsync(T entity);
     }
 }

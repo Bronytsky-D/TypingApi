@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using TypingWebApi.Dtos;
-using TypingWeb.Infrastructure.PostgreSQL.Models;
+using TypingWeb.Domain.Models.Entities;
 
 namespace TypingWebApi.Profiles
 {
-    public class ProgressMappingProfile : Profile
+    public class AutoMapperProfile : Profile
     {
-        public ProgressMappingProfile() 
+        public AutoMapperProfile() 
         {
-            CreateMap<ProgressWriteRequestDto, LessonProgress>();
+            CreateMap<ProgressWriteRequestDto, LessonProgressEntity>();
         }
     }
 }

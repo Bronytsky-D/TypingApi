@@ -10,7 +10,7 @@ using TypingWeb.Domain.Models.Entities;
 
 namespace TypingWebApi.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProgressController : ControllerBase

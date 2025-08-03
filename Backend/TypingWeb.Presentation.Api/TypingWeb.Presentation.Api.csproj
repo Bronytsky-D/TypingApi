@@ -35,7 +35,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TypingWeb.Common\TypingWeb.Common.csproj" />
     <ProjectReference Include="..\TypingWeb.Domain.Abstractions\TypingWeb.Domain.Abstractions.csproj" />
-    <ProjectReference Include="..\TypingWeb.Domain\TypingWeb.Domain.Models.csproj" />
+    <ProjectReference Include="..\TypingWeb.Domain\TypingWeb.Domain.csproj" />
     <ProjectReference Include="..\TypingWeb.IoC\TypingWeb.IoC.csproj" />
   </ItemGroup>
 

@@ -93,6 +93,18 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("https://localhost:4200")
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials();
+    });
+});
+
+
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 
@@ -108,7 +120,6 @@ builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-// Автоматична міграція БД + ролі
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -135,7 +146,6 @@ app.UseMiddleware<RequestLogContextMiddleware>();
 
 app.UseSerilogRequestLogging(); 
 
-// ? ОБОВ'ЯЗКОВО: активувати політику CORS
 app.UseCors("AllowFrontend");
 
 app.UseAuthentication();

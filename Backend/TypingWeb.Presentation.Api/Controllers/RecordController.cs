@@ -1,14 +1,8 @@
-﻿using AutoMapper;
-using FluentValidation;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TypingWebApi.Dtos;
-
-using TypingWeb.Domain;
-using TypingWeb.Domain.Abstractions.Services;
-
 using TypingWeb.Common;
-using TypingWeb.Domain.Models.Entities;
+using TypingWeb.Aplication.Abstractions.UseCases;
+using TypingWeb.Common.DTOs;
 
 namespace TypingWebApi.Controllers
 {
@@ -17,52 +11,26 @@ namespace TypingWebApi.Controllers
     [ApiController]
     public class RecordController : ControllerBase
     {
-        private readonly IRecordService _recordService;
-        private readonly IUserGameService _userGameService;
-        private readonly IMapper _mapper; 
-        private readonly IValidator<RecordWriteRequestDto> _validator;
+        private readonly IAddRecordUseCase _addRecordUseCase;
+        private readonly IGetRecordUseCase _getRecordUseCase;
 
-        public RecordController(IRecordService recordService, 
-            IUserGameService userGameService,
-            IMapper mapper,
-            IValidator<RecordWriteRequestDto> validator)
+        public RecordController(IAddRecordUseCase addRecordUseCase,
+            IGetRecordUseCase getRecordUseCase)
         {
-            _recordService = recordService;
-            _mapper = mapper;
-            _validator = validator;
-            _userGameService = userGameService;
+            _getRecordUseCase = getRecordUseCase;
+            _addRecordUseCase = addRecordUseCase;
         }
 
         [HttpPost]
         public async Task<IExecutionResponse> PostRecord(RecordWriteRequestDto recordDto)
         {
-            var validationResult = await _validator.ValidateAsync(recordDto);
-            if (!validationResult.IsValid)
-            {
-                var problemDatails = new HttpValidationProblemDetails(validationResult.ToDictionary())
-                {
-                    Type = "https://example.com/validation-error",
-                    Title = "Validation Error",
-                    Status = StatusCodes.Status400BadRequest,
-                    Detail = "One or more validation errors occurred."
-                };
-                return ExecutionResponse.Failure(problemDatails.Detail);
-            }
-            var record = _mapper.Map<RecordEntity>(recordDto);
-            var response = await _recordService.AddRecordAsync(record);
-
-            if (response.Success && recordDto.Experience > 0)
-            {
-                await _userGameService.AddExperienceAsync(recordDto.UserId, recordDto.Experience);
-            }
-
-            return response;
+            return await _addRecordUseCase.ExecuteAsync(recordDto); ;
         }
 
         [HttpGet("{userId}")]
         public async Task<IExecutionResponse> GetRecordsByUser(string userId)
         {
-            return await _recordService.GetRecordsByUserIdAsync(userId);
+            return await _getRecordUseCase.ExecuteAsync(userId);
         }
 
     } 

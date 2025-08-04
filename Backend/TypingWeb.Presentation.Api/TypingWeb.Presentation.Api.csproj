@@ -33,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TypingWeb.Aplication.Contracts\TypingWeb.Aplication.Abstractions.csproj" />
     <ProjectReference Include="..\TypingWeb.Common\TypingWeb.Common.csproj" />
     <ProjectReference Include="..\TypingWeb.Domain.Abstractions\TypingWeb.Domain.Abstractions.csproj" />
     <ProjectReference Include="..\TypingWeb.Domain\TypingWeb.Domain.csproj" />

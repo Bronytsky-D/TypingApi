@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TypingWeb.Aplication.Contracts\TypingWeb.Aplication.Abstractions.csproj" />
+    <ProjectReference Include="..\TypingWeb.Aplication.UseCases\TypingWeb.Aplication.UseCases.csproj" />
     <ProjectReference Include="..\TypingWeb.Aplication\TypingWeb.Aplication.csproj" />
     <ProjectReference Include="..\TypingWeb.Infrastructure.PostgreSQL\TypingWeb.Infrastructure.PostgreSQL.csproj" />
   </ItemGroup>

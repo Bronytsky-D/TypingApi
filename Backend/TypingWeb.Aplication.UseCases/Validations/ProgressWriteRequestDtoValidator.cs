@@ -1,9 +1,10 @@
 ﻿using FluentValidation;
+using TypingWeb.Common.DTOs;
 using TypingWebApi.Dtos;
 
-namespace TypingWebApi.Validations
+namespace TypingWeb.Aplication.UseCases.Validations
 {
-    internal sealed class ProgressWriteRequestDtoValidator : AbstractValidator<ProgressWriteRequestDto>
+    public class ProgressWriteRequestDtoValidator : AbstractValidator<ProgressWriteRequestDto>
     {
         public ProgressWriteRequestDtoValidator()
         {

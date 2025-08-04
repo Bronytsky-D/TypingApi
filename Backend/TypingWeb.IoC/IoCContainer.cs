@@ -15,6 +15,7 @@ namespace TypingWeb.IoC
         {
             InfrasrtuctureContainer.Register(services, configurationManager);
             ApplicationContainer.Register(services, configurationManager);
+            ControllerModuleContainer.Register(services, configurationManager);
             //BaseModule.Register(services);
             //MediatRModule.Register(services);
             //ControllerModule.Register(services);

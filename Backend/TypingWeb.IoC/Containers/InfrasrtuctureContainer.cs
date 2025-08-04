@@ -14,12 +14,12 @@ namespace TypingWeb.IoC.Containers
     {
         public static void Register(this IServiceCollection services, ConfigurationManager configurationManager)
         {
-            //services.AddDbContext<ApplicationContext>(option =>
-            //    option.UseNpgsql(configurationManager.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationContext>(option =>
+                option.UseNpgsql(configurationManager.GetConnectionString("DefaultConnection")));
 
-            //services.AddIdentity<User, IdentityRole>()
-            //    .AddEntityFrameworkStores<ApplicationContext>()
-            //    .AddDefaultTokenProviders();
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationContext>()
+                .AddDefaultTokenProviders();
             //here
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 

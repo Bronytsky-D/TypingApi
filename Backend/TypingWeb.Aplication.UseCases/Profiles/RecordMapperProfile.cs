@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
+using TypingWeb.Common.DTOs;
 using TypingWeb.Domain.Models.Entities;
 using TypingWebApi.Dtos;
 
 
-namespace TypingWebApi.Profiles
+namespace TypingWeb.Aplication.UseCases.Profiles
 {
     public class RecordMapperProfile : Profile
     {

@@ -1,6 +1,5 @@
-﻿using TypingWeb.Domain.Models.Enums;
-
-namespace TypingWebApi.Dtos
+﻿
+namespace TypingWeb.Common.DTOs
 {
     public class RecordWriteRequestDto
     {
@@ -9,8 +8,8 @@ namespace TypingWebApi.Dtos
             public int Accuracy { get; set; }
             public int Chars { get; set; }
             public int MatchTime { get; set; }
-
-            public GameMode Mode { get; set; } = GameMode.Time;
+            // mode can be an enum or int, depending on your design
+            public int Mode { get; set; }
             public int GameLength { get; set; }
 
             public int? Consistency { get; set; }

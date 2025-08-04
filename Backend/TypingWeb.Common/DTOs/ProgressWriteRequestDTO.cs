@@ -1,4 +1,4 @@
-﻿namespace TypingWebApi.Dtos
+﻿namespace TypingWeb.Common.DTOs
 {
     public class ProgressWriteRequestDto
     {

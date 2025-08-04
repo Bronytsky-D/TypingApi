@@ -6,65 +6,55 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text;
-using TypingWeb.Infrastructure.PostgreSQL;
-using TypingWeb.Infrastructure.PostgreSQL.Models;
 using TypingWeb.IoC;
 using TypingWeb.Presentation.Api.Middleware;
 using TypingWeb.Presentation.Api.Middlewares;
-using TypingWebApi.Profiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var JWTSetting = builder.Configuration.GetSection("JWTSetting");
+//var JWTSetting = builder.Configuration.GetSection("JWTSetting");
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ApplicationContext>(option =>
-    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddIdentity<User, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationContext>()
-    .AddDefaultTokenProviders();
-
 builder.Services.RegisterServices(builder.Configuration);
 
 
-builder.Services.AddAuthentication(opt =>
-{
-    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(opt =>
-{
-    opt.SaveToken = true;
-    opt.RequireHttpsMetadata = false;
-    opt.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidAudience = JWTSetting["ValidAudience"],
-        ValidIssuer = JWTSetting["ValidIssuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTSetting["SecurityKey"]))
-    };
-});
+//builder.Services.AddAuthentication(opt =>
+//{
+//    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+//    opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+//})
+//.AddJwtBearer(opt =>
+//{
+//    opt.SaveToken = true;
+//    opt.RequireHttpsMetadata = false;
+//    opt.TokenValidationParameters = new TokenValidationParameters
+//    {
+//        ValidateIssuer = true,
+//        ValidateAudience = true,
+//        ValidateLifetime = true,
+//        ValidateIssuerSigningKey = true,
+//        ValidAudience = JWTSetting["ValidAudience"],
+//        ValidIssuer = JWTSetting["ValidIssuer"],
+//        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTSetting["SecurityKey"]))
+//    };
+//});
 
 // ? CORS ÄÎÄÀÍÈÉ ÒÓÒ — ÄÎ builder.Build()
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowFrontend", policy =>
-    {
-        policy
-            .WithOrigins("http://localhost:4200")
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials();
-    });
-});
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowFrontend", policy =>
+//    {
+//        policy
+//            .WithOrigins("http://localhost:4200")
+//            .AllowAnyHeader()
+//            .AllowAnyMethod()
+//            .AllowCredentials();
+//    });
+//});
 
 // Swagger config
 builder.Services.AddSwaggerGen(c =>
@@ -98,12 +88,12 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 
-builder.Services.AddAutoMapper(
-    typeof(Program).Assembly,
-    typeof(TypingWeb.Infrastructure.PostgreSQL.AutoMapperProfile).Assembly
-);
+//builder.Services.AddAutoMapper(
+//    typeof(Program).Assembly,
+//    typeof(TypingWeb.Infrastructure.PostgreSQL.AutoMapperProfile).Assembly
+//);
 
-builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly, includeInternalTypes: true);
+//builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly, includeInternalTypes: true);
 
 builder.Host.UseSerilog((context, configuration) =>
    configuration.ReadFrom.Configuration(context.Configuration));

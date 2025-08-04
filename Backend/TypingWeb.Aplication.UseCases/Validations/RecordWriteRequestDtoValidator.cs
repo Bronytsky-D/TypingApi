@@ -1,10 +1,10 @@
-﻿
-using FluentValidation;
+﻿using FluentValidation;
+using TypingWeb.Common.DTOs;
 using TypingWebApi.Dtos;
 
-namespace TypingWebApi.Validations
+namespace TypingWeb.Aplication.UseCases.Validations
 {
-    internal sealed class RecordWriteRequestDtoValidator : AbstractValidator<RecordWriteRequestDto>
+    public class RecordWriteRequestDtoValidator : AbstractValidator<RecordWriteRequestDto>
     {
         public RecordWriteRequestDtoValidator()
         {

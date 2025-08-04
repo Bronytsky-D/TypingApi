@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TypingWeb.Common.DTOs
+﻿namespace TypingWeb.Common.DTOs
 {
     public class UserDTO
     {

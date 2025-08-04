@@ -1,6 +1,6 @@
-﻿namespace TypingWebApi.Dtos
+﻿namespace TypingWeb.Common.DTOs
 {
-    public class ReadUserRecords
+    public class ReadUserRecordsDTO
     {
         public int Wpm { get; set; }
         public int Raw { get; set; }

@@ -8,8 +8,7 @@ namespace TypingWeb.Infrastructure.PostgreSQL
     {
         public AutoMapperProfile()
         {
-            CreateMap<LessonProgress, LessonProgressEntity>();
-            CreateMap<LessonProgressEntity, LessonProgress>();
+            CreateMap<LessonProgress, LessonProgressEntity>().ReverseMap();
             CreateMap<Record, RecordEntity>()
                 .ReverseMap()
                 .ForMember(dest => dest.User, opt => opt.Ignore());

@@ -1,31 +1,25 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TypingWeb.Domain;
-using TypingWeb.Domain.Abstractions.Services;
 using TypingWeb.Common;
+using TypingWeb.Aplication.Abstractions.UseCases;
 
 namespace TypingWeb.Presentation.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : Controller
     {
-        private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        private readonly IGetUserUseCase _getUserUseCase;
+        public UserController(IGetUserUseCase getUserUseCase)
         {
-            _userService = userService;
+            _getUserUseCase = getUserUseCase;
         }
 
         [HttpGet("{userId}")]
         public async Task<IExecutionResponse> GetUser(string userId)
         {
-            //var user = await _userService.GetUserById(userId);
-            //if (user == null)
-            //    return ExecutionResponse.Failure("not founde");
-            //return user;
-
-            return ExecutionResponse.Successful(true);
+            return await _getUserUseCase.ExecuteAsync(userId);
         }
     }
 }

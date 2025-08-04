@@ -35,6 +35,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingWeb.Infrastructure.Po
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingWeb.Application.Test", "TypingWeb.Application.Test\TypingWeb.Application.Test.csproj", "{23EC80B4-25B3-EE44-35C1-FB554C4E9447}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingWeb.Aplication.UseCases", "TypingWeb.Aplication.UseCases\TypingWeb.Aplication.UseCases.csproj", "{7BC5935F-77F3-4678-A27B-33A14CBCE8A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingWeb.Aplication.Abstractions", "TypingWeb.Aplication.Contracts\TypingWeb.Aplication.Abstractions.csproj", "{8D5A0E1D-1C46-4358-9596-6A3E14D5E208}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +93,14 @@ Global
 		{23EC80B4-25B3-EE44-35C1-FB554C4E9447}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23EC80B4-25B3-EE44-35C1-FB554C4E9447}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23EC80B4-25B3-EE44-35C1-FB554C4E9447}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BC5935F-77F3-4678-A27B-33A14CBCE8A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BC5935F-77F3-4678-A27B-33A14CBCE8A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BC5935F-77F3-4678-A27B-33A14CBCE8A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BC5935F-77F3-4678-A27B-33A14CBCE8A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D5A0E1D-1C46-4358-9596-6A3E14D5E208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D5A0E1D-1C46-4358-9596-6A3E14D5E208}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D5A0E1D-1C46-4358-9596-6A3E14D5E208}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D5A0E1D-1C46-4358-9596-6A3E14D5E208}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,6 +117,8 @@ Global
 		{130E3446-BEBB-9EDA-D340-1BC1593EF767} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{F4878FEA-8082-3300-11E6-4598D2A6A7AE} = {78AF79E5-07C7-4BD8-8E81-2062AC88C03C}
 		{23EC80B4-25B3-EE44-35C1-FB554C4E9447} = {A72A7B21-1299-4A85-8F19-AE8B46682A9D}
+		{7BC5935F-77F3-4678-A27B-33A14CBCE8A8} = {78AF79E5-07C7-4BD8-8E81-2062AC88C03C}
+		{8D5A0E1D-1C46-4358-9596-6A3E14D5E208} = {78AF79E5-07C7-4BD8-8E81-2062AC88C03C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {91FAC065-0572-4D16-A448-B02C06C80EEE}

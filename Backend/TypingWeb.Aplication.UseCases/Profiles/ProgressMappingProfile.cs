@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using TypingWebApi.Dtos;
 using TypingWeb.Domain.Models.Entities;
+using TypingWeb.Common.DTOs;
 
-namespace TypingWebApi.Profiles
+namespace TypingWeb.Aplication.UseCases.Profiles
 {
     public class AutoMapperProfile : Profile
     {

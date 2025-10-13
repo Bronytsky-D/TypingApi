@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TypingWeb.IoC.Containers;
 
@@ -16,9 +11,7 @@ namespace TypingWeb.IoC
             InfrasrtuctureContainer.Register(services, configurationManager);
             ApplicationContainer.Register(services, configurationManager);
             ControllerModuleContainer.Register(services, configurationManager);
-            //BaseModule.Register(services);
-            //MediatRModule.Register(services);
-            //ControllerModule.Register(services);
+
         }
     }
 }

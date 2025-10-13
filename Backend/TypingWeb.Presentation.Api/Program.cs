@@ -1,11 +1,5 @@
-using FluentValidation;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
-using System.Text;
 using TypingWeb.IoC;
 using TypingWeb.Presentation.Api.Middleware;
 using TypingWeb.Presentation.Api.Middlewares;

@@ -8,7 +8,7 @@ namespace TypingWeb.Domain.Abstractions.Services
         public Task<IExecutionResponse> GetAllUsers();
         public Task<IExecutionResponse> GetUserById(string id);
         public Task<IExecutionResponse> GetUserByEmail(string email);
-        public Task<IExecutionResponse> CreateUser(UserEntity model, string? password = null);
-        public Task<IExecutionResponse> DeleteUser(UserEntity model);
+        public Task<IExecutionResponse> CreateUser(UserProfileEntity model, string? password = null);
+        public Task<IExecutionResponse> DeleteUser(UserProfileEntity model);
     }
 }

@@ -7,29 +7,26 @@ using AutoMapper;
 
 namespace TypingWeb.Service.Services
 {
-    public  class UserGameService : IUserGameService
-    {
-        private readonly UserManager<User> _userManager;
-        public UserGameService(UserManager<User> userManager)
-        {
-            _userManager = userManager;
-        }
-        public async Task<bool> AddExperienceAsync(string userId, int xp)
-        {
-            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == userId);
-            if (user == null)
-                return false;
-            while (user.ExperiencePoints >= 100 * (user.Level + 1))
-            {
-                user.Level++;
+    //public  class UserGameService : IUserGameService
+    //{
+    //    private readonly UserManager<UserProfile> _userManager;
+    //    public UserGameService(UserManager<UserProfile> userManager)
+    //    {
+    //        _userManager = userManager;
+    //    }
+    //    public async Task<bool> AddExperienceAsync(string userId, int xp)
+    //    {
+    //        var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == userId);
+    //        if (user == null)
+    //            return false;
+    //        while (user.ExperiencePoints >= 100 * (user.Level + 1))
+    //        {
+    //            user.Level++;
+    //        }
+    //        await _userManager.UpdateAsync(user);
 
-                user.Achievements ??= new List<string>();
-                user.Achievements.Add($"Level {user.Level} reached");
-            }
-            await _userManager.UpdateAsync(user);
+    //        return true;
+    //    }
 
-            return true;
-        }
-
-    }
+    //}
 }

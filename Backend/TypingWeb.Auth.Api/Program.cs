@@ -4,12 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
-using TypingWeb.Api.Extensions;
-
 using FluentValidation;
 using Serilog;
-using TypingWeb.Infrastructure.PostgreSQL;
 using TypingWeb.Auth.Api.Middleware;
+using TypingWeb.Auth.IoC;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,18 +19,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ApplicationContext>(option =>
-    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-//builder.Services.AddIdentity<User, IdentityRole>()
-//    .AddEntityFrameworkStores<ApplicationContext>()
-//    .AddDefaultTokenProviders();
 
 var jwtSettings = builder.Configuration.GetSection("JWTSetting");
 var secretKey = builder.Configuration["JWTSetting:SecurityKey"];
 var jwtSecretKey = Encoding.UTF8.GetBytes(secretKey);
 
-builder.Services.RegisterServices();
+builder.Services.RegisterServices(builder.Configuration);
 
 builder.Services.AddAuthentication(options =>
 {

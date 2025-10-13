@@ -12,10 +12,9 @@ namespace TypingWeb.IoC.Containers
         public static void Register(this IServiceCollection services, ConfigurationManager configurationManager)
         {
             services.AddScoped<IRecordService, RecordService>();
-            services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IUserAuthService, UserAuthService>();
-            services.AddScoped<IUserGameService, UserGameService>();
-            services.AddScoped<ITokenService, TokenService>();
+            //services.AddScoped<IUserService, UserService>();
+            //services.AddScoped<IUserAuthService, UserAuthService>();
+            //services.AddScoped<IUserGameService, UserGameService>();
             services.AddScoped<IProgressService, ProgressService>();
 
             services.AddScoped<IGetRecordUseCase, GetRecordUseCase>();

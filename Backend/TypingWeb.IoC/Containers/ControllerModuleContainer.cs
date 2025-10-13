@@ -36,7 +36,6 @@ namespace TypingWeb.IoC.Containers
                         };
                     });
 
-            // ? CORS ДОДАНИЙ ТУТ — ДО builder.Build()
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowFrontend", policy =>

@@ -19,9 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TypingWeb.Aplication\TypingWeb.Aplication.csproj" />
-    <ProjectReference Include="..\TypingWeb.Infrastructure\TypingWeb.Infrastructure.csproj" />
-    <ProjectReference Include="..\TypingWeb.IoC\TypingWeb.IoC.csproj" />
+    <ProjectReference Include="..\TypingWeb.Auth.Infrastucture.PostgreSQL\TypingWeb.Auth.Infrastructure.PostgreSQL.csproj" />
+    <ProjectReference Include="..\TypingWeb.Auth.IoC\TypingWeb.Auth.IoC.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,28 +1,29 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using TypingWeb.Domain.Abstractions.Services;
 using TypingWeb.Common;
 using TypingWeb.Domain;
+using TypingWeb.Domain.Abstractions.Services;
 using TypingWeb.Domain.Models.Entities;
+using TypingWeb.Infrastructure;
 using TypingWeb.Infrastructure.PostgreSQL.Models;
-using AutoMapper;
 
 namespace TypingWeb.Service.Services
 {
     public class UserService : IUserService
     {
-        private readonly UserManager<User> _userManager;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public UserService(UserManager<User> userManager, IMapper autoMapper)
+        public UserService(IUnitOfWork unitOfWork, IMapper autoMapper)
         {
-            _userManager = userManager;
+            _unitOfWork = unitOfWork;
             _mapper = autoMapper;
         }
 
         public async Task<IExecutionResponse> GetAllUsers()
         {
-            var users = await _userManager.Users.ToListAsync();
+            var users = await _unitOfWork.Users.ToListAsync();
             if (users == null || !users.Any())
             {
                 return ExecutionResponse.Failure("No users found");
@@ -53,9 +54,9 @@ namespace TypingWeb.Service.Services
             return ExecutionResponse.Successful(user);
         }
 
-        public async Task<IExecutionResponse> CreateUser(UserEntity model, string? password = null)
+        public async Task<IExecutionResponse> CreateUser(UserProfileEntity model, string? password = null)
         {
-            var entity = _mapper.Map<User>(model);
+            var entity = _mapper.Map<UserProfile>(model);
             IdentityResult identityResult = password == null
                 ? await _userManager.CreateAsync(entity)
                 : await _userManager.CreateAsync(entity, password);
@@ -77,9 +78,9 @@ namespace TypingWeb.Service.Services
             return ExecutionResponse.Successful(entity);
         }
 
-        public async Task<IExecutionResponse> DeleteUser(UserEntity model)
+        public async Task<IExecutionResponse> DeleteUser(UserProfileEntity model)
         {
-            var entity = _mapper.Map<User>(model);
+            var entity = _mapper.Map<UserProfile>(model);
             IdentityResult deleteResult = await _userManager.DeleteAsync(entity);
             if (!deleteResult.Succeeded)
             {

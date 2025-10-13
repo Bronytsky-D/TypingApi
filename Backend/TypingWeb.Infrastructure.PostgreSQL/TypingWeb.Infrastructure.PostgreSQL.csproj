@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
       <PrivateAssets>all</PrivateAssets>
@@ -23,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TypingWeb.Auth.Infrastucture.PostgreSQL\TypingWeb.Auth.Infrastructure.PostgreSQL.csproj" />
     <ProjectReference Include="..\TypingWeb.Domain\TypingWeb.Domain.csproj" />
     <ProjectReference Include="..\TypingWeb.Infrastructure\TypingWeb.Infrastructure.csproj" />
   </ItemGroup>

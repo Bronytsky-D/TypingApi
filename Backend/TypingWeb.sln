@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingWeb.Domain.Abstractio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{36FD5196-8974-45AD-A40B-683A4BFCB2B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypinWeb.Auth.Application", "TypinWeb.Auth.Application\TypinWeb.Auth.Application.csproj", "{F6128C9B-6740-44A0-ACAA-5D7117C68A25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingWeb.Auth.Application", "TypingWeb.Auth.Application\TypingWeb.Auth.Application.csproj", "{F6128C9B-6740-44A0-ACAA-5D7117C68A25}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingWeb.Infrastructure.PostgreSQL.Test", "TypingWeb.Infrastructure.PostgreSQL.Test\TypingWeb.Infrastructure.PostgreSQL.Test.csproj", "{EFC81810-17E9-4F06-A194-5BB90BDF60BE}"
 EndProject
@@ -38,6 +38,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingWeb.Aplication.UseCases", "TypingWeb.Aplication.UseCases\TypingWeb.Aplication.UseCases.csproj", "{7BC5935F-77F3-4678-A27B-33A14CBCE8A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingWeb.Aplication.Abstractions", "TypingWeb.Aplication.Contracts\TypingWeb.Aplication.Abstractions.csproj", "{8D5A0E1D-1C46-4358-9596-6A3E14D5E208}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingWeb.Auth.Infrastructure.PostgreSQL", "TypingWeb.Auth.Infrastucture.PostgreSQL\TypingWeb.Auth.Infrastructure.PostgreSQL.csproj", "{E87A321F-8982-4AD5-A141-B665795B76CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingWeb.Auth.IoC", "TypingWeb.Auth.IoC\TypingWeb.Auth.IoC.csproj", "{432EF0A0-04BA-4C59-BA5E-AC5DF43C904D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +105,14 @@ Global
 		{8D5A0E1D-1C46-4358-9596-6A3E14D5E208}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D5A0E1D-1C46-4358-9596-6A3E14D5E208}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D5A0E1D-1C46-4358-9596-6A3E14D5E208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E87A321F-8982-4AD5-A141-B665795B76CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E87A321F-8982-4AD5-A141-B665795B76CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E87A321F-8982-4AD5-A141-B665795B76CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E87A321F-8982-4AD5-A141-B665795B76CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{432EF0A0-04BA-4C59-BA5E-AC5DF43C904D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{432EF0A0-04BA-4C59-BA5E-AC5DF43C904D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{432EF0A0-04BA-4C59-BA5E-AC5DF43C904D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{432EF0A0-04BA-4C59-BA5E-AC5DF43C904D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -119,6 +131,8 @@ Global
 		{23EC80B4-25B3-EE44-35C1-FB554C4E9447} = {A72A7B21-1299-4A85-8F19-AE8B46682A9D}
 		{7BC5935F-77F3-4678-A27B-33A14CBCE8A8} = {78AF79E5-07C7-4BD8-8E81-2062AC88C03C}
 		{8D5A0E1D-1C46-4358-9596-6A3E14D5E208} = {78AF79E5-07C7-4BD8-8E81-2062AC88C03C}
+		{E87A321F-8982-4AD5-A141-B665795B76CA} = {36FD5196-8974-45AD-A40B-683A4BFCB2B5}
+		{432EF0A0-04BA-4C59-BA5E-AC5DF43C904D} = {36FD5196-8974-45AD-A40B-683A4BFCB2B5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {91FAC065-0572-4D16-A448-B02C06C80EEE}

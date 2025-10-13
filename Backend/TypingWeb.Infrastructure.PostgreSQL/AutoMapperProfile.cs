@@ -12,8 +12,8 @@ namespace TypingWeb.Infrastructure.PostgreSQL
             CreateMap<Record, RecordEntity>()
                 .ReverseMap()
                 .ForMember(dest => dest.User, opt => opt.Ignore());
-            CreateMap<RefreshToken, RefreshTokenEntity>().ReverseMap();
-            CreateMap<User, UserEntity>().ReverseMap();
+            //CreateMap<RefreshToken, RefreshTokenEntity>().ReverseMap();
+            CreateMap<UserProfile, UserProfileEntity>().ReverseMap();
         }
     }
 }
